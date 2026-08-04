@@ -28,3 +28,7 @@ topics:
       AND ("3D integration" OR "3D stacking" OR TSV OR "through-silicon via"
       OR "hybrid bonding" OR packaging)
 
+  - id: HBM fundamentals
+    label: "HBM Fundamentals"
+    query: "\"HBM: Memory Solution for Bandwidth-Hungry Processors\" Joonyoung Kim Younsu Kim"
+
