@@ -18,9 +18,13 @@ max_per_topic: 5
 
 # ⬇️ 비어 있으면 아무 일도 일어나지 않는다(안전 기본값).
 #    아래 예시의 # 을 지우고 내 주제로 바꾸면 그때부터 매주 돈다.
-topics: 
+topics:
 
   - id: my-lab
-    label: "반도체 연구 트렌드"
-    query: "최근 반도체 연구 주제"
+    label: "Semiconductor"
+    query: >
+      ("High Bandwidth Memory" OR HBM OR HBM2 OR HBM3 OR HBM3E OR HBM4)
+      AND (review OR tutorial OR survey OR overview)
+      AND ("3D integration" OR "3D stacking" OR TSV OR "through-silicon via"
+      OR "hybrid bonding" OR packaging)
 
