@@ -31,21 +31,23 @@ kind: status
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.
 1. Die Pad와 RDL의 관계
-2. Package Substrate의 내부 배선 구조
+2. Package Substrate의 내부 배선 구조와 Interposer-Substrate 연결 방식
 3. TSV와 Micro Bump의 역할 분담
+4. Interposer가 필요한 이유를 'Substrate가 Die 수준의 높은 배선 밀도를 직접 처리하기 어렵기 때문'이라고 정확히 설명하는 것
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 다음 세션에서 다시 물을 것. 러너가 채워 나간다.
-1. 왜 Substrate는 Interposer 수준의 배선 밀도를 구현하기 어려운가?
+1. 왜 Package Substrate는 Interposer 수준의 배선 밀도를 구현하기 어려운가?
 2. Die Pad와 RDL은 각각 어떤 역할을 하는가?
-3. TSV는 HBM Stack 내부에서 어떤 역할을 하는가?
-4. 왜 HBM에는 Interposer가 필요한가?
+3. HBM Stack 내부에서 TSV와 Micro Bump는 각각 어떤 연결을 담당하는가?
+4. Die에서 PCB까지 신호가 이동하는 경로를 각 구성요소의 역할과 함께 설명할 수 있는가?
 
 ## 최근 궤적 (러너가 갱신)
 
 ---
 - 2026-08-04 · HBM 머리글과 패키징 Parking Lot → [daily/2026-08-04-hbm-2014-header.md](daily/2026-08-04-hbm-2014-header.md)
 - 2026-08-06 · HBM 패키징의 기본 신호 경로 → [daily/2026-08-06-hbm.md](daily/2026-08-06-hbm.md)
+- 2026-08-06 · HBM 패키징 신호 경로와 Interposer 역할 → [daily/2026-08-06-hbm-2.md](daily/2026-08-06-hbm-2.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
