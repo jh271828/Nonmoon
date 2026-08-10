@@ -1,25 +1,43 @@
 ---
-title: "논문 인박스 — 2026-08-04"
-updated: 2026-08-04
+title: "논문 인박스 — 2026-08-10"
+updated: 2026-08-10
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-08-04
+# 📬 논문 인박스 — 2026-08-10
 
-> 새 논문 **7편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
+> 새 논문 **5편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
 > 다 읽을 필요 없다 — **제목과 초록만 훑고 1편만 골라** 깊게 보는 편이 낫다.
 
+> ⚠️ **분야가 고정되지 않은 주제 2개** — Semiconductor, HBM Fundamentals
+> 이 주제들은 단어로만 검색된다. 약어가 겹치면 엉뚱한 분야의 논문이 섞인다(`HBM` → high bandwidth memory / human breast milk).
+> 세션에서 러너에게 **"이 주제 분야 고정해줘"** 라고 하면, 이미 읽은 논문을 씨앗으로 삼아 분야를 잡아 준다 — 사람이 코드를 찾을 필요는 없다.
 
-## HBM Fundamentals
+## Semiconductor
 
-### ✅ [AME-PIM: Can Memory be Your Next Tensor Accelerator?](https://doi.org/10.1145/3801487.3806067)
-<sub>2026-05-19 · Emanuele Venieri, Simone Manoni, Alberto Florian 외</sub>
+### 🆕 [Right hippocampal volume and attenuated psychotic symptoms distinguish subgroups of youth with common patterns of temporoparietal effective connectivity](https://doi.org/10.1007/s00429-026-03161-1)
+<sub>2026-08-08 · Katrina Aberizk, Benson S. Ku, Hengyi Cao 외 · Brain Structure and Function</sub>
 
-> High Bandwidth Memory with Processing-in-Memory (HBM-PIM) offers an opportunity to reduce data movement by executing computation directly inside memory, but current commercial platforms expose limited instruction sets and require specialized software stacks. In this work, we investigate whether HBM-PIM can serve as a backend for ISA-level matrix acceleration, using the RISC-V Attached Matrix Exten
+> Abstract Associations between patterns of brain connectivity and brain structural features have transdiagnostic relevance to psychopathology. There is considerable evidence for disruptions to the hippocampus and temporoparietal brain systems in psychotic disorders. The present study examines structure–function relationships—specifically, the relation of hippocampal volume with patterns of temporop
 
-### ✅ [Effect of non-Fourier heat transport on temperature distribution in High Bandwidth Memory](https://doi.org/10.48550/arxiv.2510.07691)
-<sub>2025-10-09 · Z. C. Zhou, Yu He, Shixian Liu 외 · arXiv (Cornell University)</sub>
+### 🆕 [A qualitative study of quackery practices, induction pathways, and professional complicity in Sindh, Pakistan](https://doi.org/10.1186/s12982-026-02577-8)
+<sub>2026-08-08 · Ghulam Yaseen Veesar, Ather Akhlaq, Ahson Qavi Siddiqi 외 · Discover Public Health</sub>
 
-> High Bandwidth Memory (HBM), as a key development trend in future memory chip technology, significantly enhances computer performance. At the same time, the thermal challenges arising from its stacked architecture have drawn considerable attention. Most existing studies on HBM thermal management are based on Fourier's law, neglecting the non-Fourier effects introduced by the micro/nanoscale struct
+> Abstract Quackery continues to pose a significant public health challenge globally, with heightened prevalence among low- and middle-income countries (LMICs), including Pakistan, threatening safe healthcare services and patient safety. This study aimed to investigate the practices, sources of induction for quacks, and the role of legitimate practitioners in quackery. This study employed a qualitat
+
+### 🆕 [Shared and unique neural correlates of reappraisal generation and implementation](https://doi.org/10.3758/s13415-026-01477-3)
+<sub>2026-08-07 · Yuanjie Ritz Liu, M. Brody Leo, Kateri McRae 외 · Cognitive Affective & Behavioral Neuroscience</sub>
+
+> Cognitive reappraisal is an effective emotion regulation strategy that involves changing the meaning of an emotional event to alter one's emotional experience. Experimental studies have identified two dissociable subprocesses within reappraisal: the generation of candidate reappraisals (reappraisal generation) and the elaboration on a reappraisal to change emotion (reappraisal implementation). We 
+
+### ✅ [A Survey on Deep Learning Hardware Accelerators for Heterogeneous HPC Platforms](https://doi.org/10.1145/3729215)
+<sub>2025-04-18 · Cristina Silvano, Daniele Ielmini, Fabrizio Ferrandi 외 · ACM Computing Surveys</sub>
+
+> Recent trends in deep learning (DL) have made hardware accelerators essential for various high-performance computing (HPC) applications, including image classification, computer vision, and speech recognition. This survey summarizes and classifies the most recent developments in DL accelerators, focusing on their role in meeting the performance demands of HPC applications. We explore cutting-edge 
+
+### ✅ [Automated machine learning with interpretation: A systematic review of methodologies and applications in healthcare](https://doi.org/10.1002/med4.75)
+<sub>2024-08-27 · Han Yuan, Kunyu Yu, Feng Xie 외 · Medicine Advances</sub>
+
+> Abstract Machine learning (ML) has achieved substantial success in performing healthcare tasks in which the configuration of every part of the ML pipeline relies heavily on technical knowledge. To help professionals with borderline expertise to better use ML techniques, Automated ML (AutoML) has emerged as a prospective solution. However, most models generated by AutoML are black boxes that are ch
 
