@@ -77,6 +77,19 @@ STATUS_DERIVED = [
     ("다음 복습 질문", "다음 복습 질문", 5),
 ]
 
+# 2026-08-05: `지금 약한 것`은 **교체가 아니라 누적**이다.
+#
+# 그 전에는 `apply_section_patch`가 절 본문을 통째로 갈아 끼웠다. 그래서 이번 세션에서
+# 다루지 않은 약점은 조용히 사라졌고, 러너는 다음 세션에 그것을 다시 만나지 못했다 —
+# STATUS.md는 러너가 세션 시작에 읽는 유일한 파일이라, 여기서 지워지면 영영 안 돌아온다.
+# (파일럿 저장소에서 KCL·KVL이 `암기`로 남은 채 테브난만 두 세션 연속으로 돌았다.)
+#
+# 약점은 "이번 세션에서 나온 것"이 아니라 **"아직 안 풀린 것"**이다. 새 것을 앞에 놓고
+# 이어 붙이되 상한을 둔다 — 무한정 쌓이면 이 파일이 커져 러너가 매 세션 통째로 읽는
+# 비용이 오른다(작게 유지하는 것이 이 파일의 존재 이유다). 상한 밖으로 밀려난 것은
+# `mastery.md`에 남아 있으므로 사라지는 것이 아니다.
+STATUS_ACCUMULATED = {"지금 약한 것": 5}
+
 TRAJECTORY_SECTION = "최근 궤적"
 # 최근 궤적은 교체가 아니라 누적이다. 무한정 쌓으면 STATUS.md가 커져 러너가 매 세션
 # 통째로 읽는 비용이 오르므로(이 파일의 존재 이유가 "작게 유지"다) 최근 것만 남긴다.
@@ -87,6 +100,13 @@ TRAJECTORY_KEEP = 7
 # 개념의 단위 정의는 runner/instructions.md의 "개념의 단위"에 있다. 여기는 그 저장 경로일 뿐이다.
 DRILLS_SECTION = "드릴 항목"
 DRILLS_PATH = "drills.md"
+
+# `## 개념 지도` — `build_concepts.py`가 선수관계를 읽어 가는 절(그쪽 `SECTION`과 같은 값).
+# 여기서는 `[자료]` 본문이 실제로 증류됐는지 가리는 데 쓴다(`is_distilled`).
+CONCEPT_MAP_SECTION = "개념 지도"
+
+# `## 원문` — 증류와 원문의 경계. 앱이 초안을 이 모양으로 만든다(issueDraft.ts).
+SOURCE_SECTION = "원문"
 DRILLS_HEADER = [
     "---",
     'title: "드릴 항목 (회상 대상)"',
@@ -134,6 +154,14 @@ UNDERSTANDING = ("미이해", "부분 이해", "기능적 이해", "비판적 �
 READING_STATUS_SECTION = "READING_STATUS 갱신"
 READING_STATUS_PATH = os.path.join(PAPERS_DIR, "READING_STATUS.md")
 
+# 자료(렉노·교재)의 진도. 논문이 `papers/READING_STATUS.md`로 하던 것과 **같은 기계**다 —
+# 세션 노트에 절을 하나 남기면 CI가 파일에 옮겨 적는다.
+#
+# 왜 필요한가: 원문을 절 단위로 읽게 되면서 "오늘 어느 절부터인가"가 세션의 첫 물음이 됐다.
+# 기록이 없으면 러너가 daily 노트에서 짐작해야 하고, 짐작이 틀리면 이미 한 절을 또 한다.
+MATERIAL_STATUS_SECTION = "자료 진도 갱신"
+MATERIAL_STATUS_PATH = os.path.join(MATERIALS_DIR, "READING_STATUS.md")
+
 # ─────────────────────────── 설정 (`[설정]`) ───────────────────────────
 #
 # 2026-08-04: `topics.yaml`을 사람이 손으로 쓰게 하는 것이 병목이었다. YAML 문법이
@@ -143,6 +171,44 @@ READING_STATUS_PATH = os.path.join(PAPERS_DIR, "READING_STATUS.md")
 TOPICS_PATH = "topics.yaml"
 TOPICS_SECTION = "주제"
 TOPIC_FIELDS = ("query", "seed", "topics", "field", "exclude")
+
+# ─────────────────────────── 학습 트랙 ───────────────────────────
+#
+# 2026-08-04: 전자공학과 영어가 `daily/` 한 폴더에 섞여 쌓였다. 세션 노트가 뒤엉키면
+# 러너가 세션 시작에 읽는 맥락도 뒤엉키고("지금 뭘 공부하는 중이지?"), 개념 지도도
+# 한 그래프에 서로 무관한 두 주제가 들어간다. 사람에게도 기계에게도 읽히지 않는다.
+#
+# 트랙은 **학습자가 정하는 서랍**이다. 앱이나 러너가 임의로 만들지 않는다 —
+# `tracks.yaml`에 있는 것만 폴더가 되고, 세션은 `track:` 지시행으로 자기 서랍을 고른다.
+TRACKS_PATH = "tracks.yaml"
+TRACKS_SECTION = "트랙"
+TRACK_FIELDS = ("label", "mode", "goal")
+
+# 2026-08-05: `subjects.yaml` — 그래프의 **색**이 되는 분야.
+#
+# 러너가 `## 개념 지도`의 `###` 소제목을 매번 새로 지어서 같은 것이 여러 조각으로
+# 갈라졌다(파일럿에서 실제로 "회로 등가화 6 · 전자회로 5 · 전자회로 기초 4 · 미분류 22"가
+# 나왔다 — 앞의 셋은 다 같은 전자회로다). 합치는 표는 이미 `build_concepts`가 읽는데,
+# **그 표를 채울 쓰기 경로가 없었다.** 여기가 그 경로다.
+#
+# 형식이 트랙·주제와 다른 이유: 이건 id를 정하는 일이 아니라 **묶는 일**이다.
+# 대표 이름 아래에 "이렇게 적혀도 같은 것"을 나열한다.
+#
+#     ## 분야
+#     ### 전자회로
+#     - 회로 등가화
+#     - 전자회로 기초
+#
+# 대주제 묶음은 **사람이 한다**(유지훈 2026-08-05) — 러너가 마음대로 합치면 학습자가
+# 일부러 나눠 둔 것까지 뭉갠다.
+SUBJECTS_PATH = "subjects.yaml"
+
+# 2026-08-07: 지식 그래프에서 노드를 감추거나 이름을 합치는 곳. 노드는 daily 노트에서
+# 매번 다시 만들어지므로 "삭제"는 노트를 고치는 일이 되는데, 그건 기록을 거짓으로 만든다.
+# 그래서 지도 위에 얇게 덮는다 — 되돌리려면 이 파일에서 한 줄 지우면 된다.
+OVERRIDES_PATH = "concepts-overrides.yaml"
+OVERRIDES_SECTION = "지도"
+SUBJECTS_SECTION = "분야"
 
 BOT_SUFFIX = "[bot]"
 COMMAND_PREFIX = ("/기록", "/ingest", "/skip", "<!-- ingest")
@@ -348,38 +414,179 @@ def ensure_headings(body):
     return body, missing
 
 
+def pop_directives(body, allowed):
+    """본문 맨 앞의 `key: value` 지시행을 떼어낸다 → (지시 dict, 남은 본문).
+
+    앱이 만든 초안은 frontmatter 울타리(`---`) 없이 `slug: …`처럼 맨 윗줄에 적는다.
+    세션 노트(`build_note`)가 쓰던 관례와 같은 것이라 여기 모아 둘이 함께 쓴다.
+    """
+    out, lines = {}, (body or "").splitlines()
+    pattern = r"^(%s)\s*:\s*\S" % "|".join(allowed)
+    while lines and re.match(pattern, lines[0].strip()):
+        key, value = lines[0].split(":", 1)
+        out[key.strip()] = value.strip()
+        lines.pop(0)
+    return out, "\n".join(lines).strip()
+
+
+def source_toc(source_body):
+    """원문의 `### ` 제목 목록. 증류본에 실어 **어느 절을 열지 고르는 지도**로 쓴다.
+
+    `get_state`에 담지 않는 이유: 그러면 자료 수만큼 원문을 통째로 받아야 해서 세션
+    시작이 느려진다. CI는 자료를 가를 때 이미 원문을 손에 들고 있으므로 여기서는 공짜다.
+    """
+    return [m.group(1).strip() for m in re.finditer(r"^###\s+(\S.*)$", source_body or "", re.M)]
+
+
+def existing_material_slug(number):
+    """이 Issue로 이미 만든 자료의 slug. 없으면 None.
+
+    같은 Issue를 고쳐 다시 보내도 새 파일이 생기지 않게 한다(제목을 고치면 slug가 바뀐다).
+    단일 파일형(`materials/<slug>.md`)과 폴더형(`materials/<slug>/distilled.md`)을 함께 본다.
+    """
+    marker = f"source_issue: {number}"
+    if not os.path.isdir(MATERIALS_DIR):
+        return None
+    for entry in sorted(os.listdir(MATERIALS_DIR)):
+        full = os.path.join(MATERIALS_DIR, entry)
+        if os.path.isfile(full) and entry.endswith(".md"):
+            with open(full, encoding="utf-8") as f:
+                if marker in f.read(2000):
+                    return entry[: -len(".md")]
+        elif os.path.isdir(full):
+            for name in ("distilled.md", "source.md"):
+                cand = os.path.join(full, name)
+                if os.path.isfile(cand):
+                    with open(cand, encoding="utf-8") as f:
+                        if marker in f.read(2000):
+                            return entry
+    return None
+
+
+def split_source(body):
+    """`## 원문` 경계로 (증류 부분, 원문 부분). 경계가 없으면 (body, None).
+
+    앱이 자료를 올릴 때 증류를 원문 **앞에** 놓고 이 제목을 경계로 둔다
+    (Topdown `lib/sources/issueDraft.ts`). 두 조각은 성격이 다르다 —
+    증류는 파생 학습자료이고 원문은 인용 근거다. 그래서 파일을 나눈다.
+    """
+    m = re.search(r"^##\s*%s\s*$" % re.escape(SOURCE_SECTION), body or "", re.M)
+    if not m:
+        return body, None
+    return body[:m.start()].rstrip(), body[m.end():].lstrip("\n")
+
+
+def is_distilled(body):
+    """이 본문이 **실제로 증류된 것인가** — `## 개념 지도`가 있는가.
+
+    셋 중 이것을 기준으로 삼는 이유: 요약·빈칸 문제는 사람이 읽는 것이지만 `## 개념 지도`는
+    **파이프라인이 실제로 먹는 것**이다(`build_concepts.py`가 materials/에서 선수관계를
+    읽어 간다). 이게 없으면 그래프에 아무것도 안 들어가므로, 증류의 값이 없는 것과 같다.
+    """
+    return bool(re.search(r"^##\s*.*%s" % re.escape(CONCEPT_MAP_SECTION), body or "", re.M))
+
+
 def build_material(payload, today):
-    """`[자료]` Issue → materials/<slug>.md — 강의자료(PDF)를 **1회 증류**한 파생 학습자료.
+    """`[자료]` Issue → materials/<slug>.md — 강의자료를 증류한(또는 못 한) 파생 학습자료.
 
     왜 이 경로인가: Custom GPT Action 응답은 텍스트라 repo의 PDF를 세션에서 읽을 수
     없다. 그래서 PDF는 대화에 한 번 올리고, 요약(지도)·개념 지도·빈칸 문제 은행을
-    텍스트로 남긴다 — 이후 세션은 readFile로 끌어온다. 원문 PDF는 저장하지 않는다
-    (저작권·용량). 정규 헤딩 강제·STATUS/mastery 처리도 하지 않는다(세션 로그가 아니다).
+    텍스트로 남긴다 — 이후 세션은 readFile로 끌어온다.
+    정규 헤딩 강제·STATUS/mastery 처리는 하지 않는다(세션 로그가 아니다).
+
+    **라벨은 사실을 말한다.** 2026-08-09: 앱에서 PDF를 파싱해 초안만 만들고 세션 없이
+    닫으면 본문 전체가 원문인데도 frontmatter가 조건 없이 `distilled`를 적고 있었다
+    (실측: 102KB 전부 원문, `## ` 헤딩은 `러너에게`·`원문` 둘뿐). 조용한 거짓말이라
+    "이 파일은 증류본이니 원문이 아니다"라는 저작권 판단까지 오도한다. 그래서 본문을
+    보고 정한다 — 증류가 있으면 `distilled`, 없으면 `raw`.
     """
     raw = assemble(payload)
     user_fm, body = split_frontmatter(raw)
+    directives, body = pop_directives(body, ("slug", "paper"))
+    user_fm = {**directives, **user_fm}
     title = payload.get("title") or ""
     head, _, tail = title.partition("—")
     if not tail:
         head, _, tail = title.partition(" - ")
-    slug = user_fm.get("slug") or slugify(head) or f"material-{payload.get('number', '0')}"
+    # `paper:`가 있으면 논문 한 편의 저장소로 간다 — 그 논문의 것은 그 논문 폴더에.
+    paper_slug = (user_fm.get("paper") or "").strip()
+    root = PAPERS_DIR if paper_slug else MATERIALS_DIR
+    slug = paper_slug or user_fm.get("slug") or slugify(head) or f"material-{payload.get('number', '0')}"
     display = (tail or head).strip()
     display = re.sub(r"^\s*\[[^\]]*\]\s*", "", display).strip()
     display = re.sub(r"^\d{4}-\d{2}-\d{2}\s*", "", display).strip() or slug
-    fm = [
-        "---",
-        f'title: "{display}"',
-        f"created: {today}",
-        f"updated: {today}",
-        "tags: [material, distilled]",
-        f'source: "자료 증류 → Issue #{payload.get("number")} (원문 PDF는 저장하지 않음)"',
-        "kind: material",
-        f"source_issue: {payload.get('number')}",
-        "---",
-    ]
-    if not re.match(r"^#\s", body):
-        body = f"# {display}\n\n" + body
-    return {"slug": slug, "content": "\n".join(fm) + "\n\n" + body.rstrip() + "\n"}
+    head, source_body = split_source(body)
+    distilled = is_distilled(head if source_body is not None else body)
+
+    def frontmatter(tag, source_line):
+        return "\n".join([
+            "---",
+            f'title: "{display}"',
+            f"created: {today}",
+            f"updated: {today}",
+            f"tags: [material, {tag}]",
+            f'source: "{source_line} → Issue #{payload.get("number")}"',
+            "kind: material",
+            f"source_issue: {payload.get('number')}",
+            "---",
+        ])
+
+    def page(text, tag, source_line):
+        if not re.match(r"^#\s", text):
+            text = f"# {display}\n\n" + text
+        return frontmatter(tag, source_line) + "\n\n" + text.rstrip() + "\n"
+
+    # 폴더형으로 가르는 때: **원문 경계가 있으면 언제나.** 논문은 `papers/<slug>/`가 이미
+    # 폴더 규약이라 경계가 없어도 폴더다.
+    #
+    # 증류 성공 여부로 가르지 않는다(유지훈 2026-08-10: *"원본도 내가 분명히 그냥 저장하자고
+    # 했었는데 — GPT가 효율적으로 읽고 토큰 절감시킨다고 증류가 목적이지"*). 증류는 러너의
+    # 토큰을 아끼는 **길잡이**이고 원문은 인용 근거다. 길잡이를 못 만들었다고 원문이 있을
+    # 자리가 바뀌면, 앱이 약속한 `<root>/<slug>/source.md`가 거짓이 되고
+    # `read_doc`이 404를 돌려준다 — 러너가 도구를 버리게 만드는 바로 그 실패다.
+    #
+    # 그래도 빈 `distilled.md`는 만들지 않는다(아래) — 그 빈 껍데기에 `distilled` 딱지가
+    # 붙는 것이 이 경로가 고쳐 온 거짓말이다. 없는 파일은 `listMaterials`가 이미 견딘다.
+    folder = bool(paper_slug) or source_body is not None
+    if not folder:
+        return {
+            "slug": slug, "root": root, "distilled": distilled, "files": None,
+            "flat": page(
+                body,
+                "distilled" if distilled else "raw",
+                "자료 증류" if distilled else "원문 텍스트 (증류 없음)",
+            ),
+        }
+
+    files = {}
+    if source_body is not None:
+        if distilled:
+            files["source.md"] = page(source_body, "source", "원문 텍스트 (그대로 보존)")
+            # 목차를 증류본에 실어 준다 — 러너는 어차피 증류본을 길잡이로 읽는다.
+            toc = source_toc(source_body)
+            body_with_toc = head if not toc else head.rstrip() + "\n\n" + "\n".join(
+                ["## 원문 목차", "",
+                 "> `read_doc`에 `section`으로 이 이름을 그대로 넘기면 그 절의 원문만 받는다.",
+                 ""] + [f"- {t}" for t in toc]
+            )
+            files["distilled.md"] = page(body_with_toc, "distilled", "자료 증류")
+        else:
+            # 증류가 없으면 `distilled.md`를 만들지 않는다. 그러면 머리말(메타 + 러너에게
+            # 남길 일)이 갈 곳이 없으므로 원문 앞에 둔다 — 버리면 "무엇을 왜 올렸나"가
+            # 사라지고, 경계가 아예 없는 경우(아래 else)와도 모양이 어긋난다.
+            files["source.md"] = page(
+                f"{head.rstrip()}\n\n{source_body}" if head.strip() else source_body,
+                "source",
+                "원문 텍스트 (증류 없음)",
+            )
+    else:
+        # 경계가 없다 = 통째로 증류본이거나 통째로 원문이다.
+        files["distilled.md" if distilled else "source.md"] = page(
+            body,
+            "distilled" if distilled else "source",
+            "자료 증류" if distilled else "원문 텍스트 (증류 없음)",
+        )
+    return {"slug": slug, "root": root, "distilled": distilled, "files": files, "flat": None}
 
 
 def build_note(payload, today):
@@ -397,6 +604,7 @@ def build_note(payload, today):
     user_fm = {**directives, **user_fm}
 
     body, status_patch = extract_status_patch(body)
+    body, material_patch = extract_status_patch(body, MATERIAL_STATUS_SECTION)
     body, mastery = pop_section(body, MASTERY_SECTION)
     body, drills = pop_section(body, DRILLS_SECTION)
     body, missing = ensure_headings(body)
@@ -450,6 +658,7 @@ def build_note(payload, today):
         "slug": slug,
         "content": "\n".join(fm) + "\n\n" + body.rstrip() + "\n",
         "status_patch": status_patch,
+        "material_patch": material_patch,
         "mastery": mastery,
         "drills": drills,
         "track": user_fm.get("track", ""),
@@ -461,23 +670,68 @@ def build_note(payload, today):
 # --------------------------------------------------------------------------- 쓰기
 
 
-def target_path(date, slug, issue_number):
-    """같은 Issue를 다시 수집하면 같은 파일을 덮어쓴다(재실행 안전)."""
+def load_tracks(path=TRACKS_PATH):
+    """`tracks.yaml` → [{id, label, mode, goal}]. 없으면 빈 목록(= 트랙 없이 쓰던 대로)."""
+    if not os.path.exists(path):
+        return []
+    tracks, cur = [], None
+    with open(path, encoding="utf-8") as f:
+        for raw in f:
+            line = raw.rstrip("\n")
+            if not line.strip() or line.lstrip().startswith("#"):
+                continue
+            m = re.match(r"^\s*-\s*(\w+):\s*(.*)$", line)
+            if m:
+                cur = {m.group(1): m.group(2).strip().strip("\"'")}
+                tracks.append(cur)
+                continue
+            m = re.match(r"^\s+(\w+):\s*(.*)$", line)
+            if m and cur is not None:
+                cur[m.group(1)] = m.group(2).strip().strip("\"'")
+    return [t for t in tracks if t.get("id")]
+
+
+def resolve_track(name, tracks):
+    """러너가 쓴 `track:` 값을 실제 트랙 id로 맞춘다 (id·라벨·대소문자 흔들림 흡수).
+
+    **없는 트랙은 만들지 않는다.** 트랙은 학습자가 정하는 서랍이고, 러너가 오타를 내면
+    `daily/electornics/`처럼 유령 폴더가 생겨 다음 세션부터 기록이 갈라진다.
+    못 찾으면 None을 돌려주고, 호출부는 루트에 쓰면서 그 사실을 회신에 적는다.
+    """
+    if not name:
+        return None
+    want = name.strip().strip("`").lower()
+    for t in tracks:
+        if want in (t["id"].lower(), (t.get("label") or "").lower()):
+            return t["id"]
+    return None
+
+
+def target_path(date, slug, issue_number, track=None):
+    """같은 Issue를 다시 수집하면 같은 파일을 덮어쓴다(재실행 안전).
+
+    트랙이 있으면 `daily/<track>/`에 쓴다. 없던 시절의 노트는 `daily/` 바로 아래에
+    있으므로, 재수집 탐색은 **하위 폴더까지** 훑는다 — 그래야 트랙을 도입한 뒤에도
+    옛 Issue를 다시 수집했을 때 파일이 둘로 갈라지지 않는다.
+    """
     marker = f"source_issue: {issue_number}"
     if os.path.isdir(DAILY_DIR):
-        for name in sorted(os.listdir(DAILY_DIR)):
-            if not name.endswith(".md"):
-                continue
-            path = os.path.join(DAILY_DIR, name)
-            with open(path, encoding="utf-8") as f:
-                if marker in f.read(2000):
-                    return path
+        for root, dirs, files in os.walk(DAILY_DIR):
+            dirs[:] = [d for d in dirs if not d.startswith(".")]
+            for name in sorted(files):
+                if not name.endswith(".md"):
+                    continue
+                path = os.path.join(root, name)
+                with open(path, encoding="utf-8") as f:
+                    if marker in f.read(2000):
+                        return path
 
-    base = os.path.join(DAILY_DIR, f"{date}-{slug}.md")
+    folder = os.path.join(DAILY_DIR, track) if track else DAILY_DIR
+    base = os.path.join(folder, f"{date}-{slug}.md")
     if not os.path.exists(base):
         return base
     for n in range(2, 20):
-        candidate = os.path.join(DAILY_DIR, f"{date}-{slug}-{n}.md")
+        candidate = os.path.join(folder, f"{date}-{slug}-{n}.md")
         if not os.path.exists(candidate):
             return candidate
     raise SystemExit(f"경로 충돌: {base}")
@@ -575,6 +829,38 @@ def write_mastery_fragment(section, track, date, slug, note_path):
     return path
 
 
+def _entry_text(line):
+    """`1. 항목` · `- 항목` → `항목`. 번호는 자리일 뿐이라 같은 항목의 판단에서 뺀다."""
+    return re.sub(r"^\s*(?:\d+[.)]|[-*])\s*", "", line).strip()
+
+
+def merge_entries(old_lines, content, cap):
+    """새 항목을 앞에, 아직 남은 옛 항목을 뒤에 — 중복 없이 `cap`개까지.
+
+    자리표시자(`(첫 세션의 스캔에서 채워진다)` 같은 괄호 한 줄)는 실제 항목이 들어오면
+    사라져야 한다. 안내용 인용(`>`)은 호출부가 이미 따로 보존한다.
+    """
+    fresh, seen = [], set()
+    for line in content.splitlines():
+        text = _entry_text(line)
+        if text and text not in seen:
+            seen.add(text)
+            fresh.append(text)
+
+    for line in old_lines:
+        if line.lstrip().startswith(">") or not line.strip():
+            continue
+        text = _entry_text(line)
+        if not text or text in seen:
+            continue
+        if text.startswith("(") and text.endswith(")"):
+            continue
+        seen.add(text)
+        fresh.append(text)
+
+    return "\n".join(f"{i}. {t}" for i, t in enumerate(fresh[:cap], 1))
+
+
 def apply_section_patch(patch, today, path=STATUS_PATH):
     """`## ` 절 본문을 통째로 교체한다 — 안내용 인용(>)줄은 보존.
 
@@ -611,7 +897,10 @@ def apply_section_patch(patch, today, path=STATUS_PATH):
         while keep and keep[-1].strip() == "":
             keep.pop()
 
-        lines[idx + 1:end] = (keep or [""]) + [content, ""]
+        cap = STATUS_ACCUMULATED.get(section)
+        body = merge_entries(lines[idx + 1:end], content, cap) if cap else content
+
+        lines[idx + 1:end] = (keep or [""]) + [body, ""]
         applied.append(section)
 
     if applied:
@@ -967,6 +1256,27 @@ kind: reading-status
 - (다음 세션의 시작점 한 줄)
 """
 
+MATERIAL_STATUS_TEMPLATE = """---
+title: "자료 진도 — 어느 자료 어느 절까지"
+updated: {today}
+kind: reading-status
+---
+
+# 자료 진도
+
+> 렉처노트·교재를 이어 읽을 때 러너가 먼저 읽는 파일.
+> 세션이 끝나면 Issue의 `## 자료 진도 갱신` 절로 갱신된다.
+> 절 이름은 그 자료 증류본의 `## 원문 목차`에 있는 것을 그대로 쓴다.
+
+## Progress
+
+- (아직 없음)
+
+## Next Session
+
+- (다음 세션에 열 자료와 절 한 줄)
+"""
+
 
 def build_topics(payload):
     """`[설정]` Issue의 `## 주제` 절 → [{id, label, query, seed, …}].
@@ -984,10 +1294,11 @@ def build_topics(payload):
     """
     body = assemble(payload)
     _, section = pop_section(body, TOPICS_SECTION)
+    # 2026-08-05: 절이 셋(`트랙`·`분야`·`주제`)으로 늘면서 여기서 예외를 던지면 안 된다 —
+    # 분배기가 세 파서를 차례로 시도하므로, "내 절이 아니다"는 빈 목록으로 답해야 한다.
+    # 무엇도 못 읽었을 때의 오류는 분배기가 세 절을 모두 언급하며 낸다.
     if not section:
-        raise SystemExit(
-            "`## 주제` 절이 없다 — `[설정]` Issue는 그 절에 주제를 적어야 한다."
-        )
+        return []
 
     topics, current = [], None
     for line in section.splitlines():
@@ -1006,6 +1317,338 @@ def build_topics(payload):
             elif key in TOPIC_FIELDS:
                 current[key] = value
     return [t for t in topics if t.get("id") and (t.get("query") or t.get("remove"))]
+
+
+def build_tracks(payload):
+    """`[설정]` Issue의 `## 트랙` 절 → [{id, label, mode, goal}].
+
+        ## 트랙
+        ### electronics | 전자공학
+        mode: 진도
+        goal: 회로 해석을 스스로 설명하기
+
+        ### english | 영어
+        remove: true
+    """
+    body = assemble(payload)
+    _, section = pop_section(body, TRACKS_SECTION)
+    if not section:
+        return []
+
+    tracks, current = [], None
+    for line in section.splitlines():
+        if line.startswith("### "):
+            head = line[4:].strip()
+            tid, _, label = head.partition("|")
+            # 폴더 이름이 되므로 id는 ASCII 슬러그다 — 한글 폴더는 경로·URL에서 깨진다.
+            # 라벨(한글)은 사람이 보는 이름으로 따로 남는다.
+            current = {"id": slugify(tid.strip()), "label": label.strip() or tid.strip()}
+            if not current["id"]:
+                # 한글만 준 경우: 라벨은 그대로 두고 id는 사용자에게 되묻게 만든다.
+                current["id"] = ""
+            tracks.append(current)
+            continue
+        m = re.match(r"^\s*-?\s*(\w+)\s*:\s*(.+)$", line)
+        if m and current is not None:
+            key, value = m.group(1).strip(), m.group(2).strip()
+            if key == "remove":
+                current["remove"] = value.lower() in ("true", "yes", "1", "예")
+            elif key in TRACK_FIELDS:
+                current[key] = value
+    return [t for t in tracks if t.get("id")]
+
+
+def build_subjects(payload):
+    """`## 분야` → [{name, aliases[], remove?}].
+
+    `### 대표 이름` 아래의 불릿이 별칭이다. 별칭이 없어도 유효하다 — 이름만 등록해 두면
+    그 이름으로 적힌 것들이 한 분야로 모인다.
+    """
+    body = assemble(payload)
+    _, section = pop_section(body, SUBJECTS_SECTION)
+    if not section:
+        return []
+
+    subjects, current = [], None
+    for line in section.splitlines():
+        line = line.rstrip()
+        head = re.match(r"^###\s+(.+?)\s*$", line)
+        if head:
+            current = {"name": head.group(1).strip().strip("`"), "aliases": []}
+            subjects.append(current)
+            continue
+        if current is None:
+            continue
+        item = re.match(r"^\s*[-*]\s+(.+?)\s*$", line)
+        if not item:
+            continue
+        value = item.group(1).strip().strip("`")
+        if re.match(r"^remove\s*:", value, re.I):
+            current["remove"] = value.split(":", 1)[1].strip().lower() in ("true", "yes", "1", "예")
+        elif value:
+            current["aliases"].append(value)
+    return [s for s in subjects if s.get("name")]
+
+
+def merge_subjects(new, path=SUBJECTS_PATH):
+    """subjects.yaml을 대표 이름 단위로 병합한다 — 별칭은 **합집합**이다.
+
+    별칭을 교체하지 않는 이유: 이 파일은 여러 세션에 걸쳐 자란다. 이번에 적지 않은 별칭을
+    지우면 지난번에 합쳐 둔 것이 다시 갈라지고, 그래프의 색이 널뛴다.
+
+    파일 위쪽 주석은 그대로 둔다 — 사람이 이 파일을 이해하는 유일한 문서다.
+    """
+    header, existing = [], []
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            lines = f.read().splitlines()
+        cut = next((i for i, l in enumerate(lines) if re.match(r"^subjects:", l)), len(lines))
+        header = lines[:cut]
+        cur = None
+        for line in lines[cut:]:
+            if line.lstrip().startswith("#"):
+                continue
+            m = re.match(r"^\s*-\s*name:\s*(.+)$", line)
+            if m:
+                cur = {"name": m.group(1).strip().strip("\"'"), "aliases": []}
+                existing.append(cur)
+                continue
+            if cur is None:
+                continue
+            a = re.match(r"^\s+-\s+(.+)$", line)
+            if a:
+                cur["aliases"].append(a.group(1).strip().strip("\"'"))
+    if not header:
+        header = [
+            "# 분야(subject) — 지식 그래프에서 개념을 묶어 보는 라벨.",
+            "#",
+            "# 대표 이름 아래 별칭을 적으면 노트에 그렇게 적혀도 한 분야로 합쳐진다.",
+            "# 비어 있으면 정규화를 하지 않는다(안전 기본값).",
+            "",
+        ]
+
+    by_name = {s["name"]: s for s in existing}
+    order = [s["name"] for s in existing]
+    added, updated, removed = [], [], []
+    for s in new:
+        name = s["name"]
+        if s.get("remove"):
+            if name in by_name:
+                by_name.pop(name)
+                order.remove(name)
+                removed.append(name)
+            continue
+        if name in by_name:
+            seen = set(by_name[name]["aliases"])
+            fresh = [a for a in s["aliases"] if a not in seen]
+            if fresh:
+                by_name[name]["aliases"].extend(fresh)   # 합집합 — 지우지 않는다
+                updated.append(name)
+        else:
+            by_name[name] = {"name": name, "aliases": list(s["aliases"])}
+            order.append(name)
+            added.append(name)
+
+    out = list(header)
+    if out and out[-1].strip():
+        out.append("")
+    out.append("subjects:" if order else "subjects: []")
+    for name in order:
+        out.append(f'  - name: "{name.replace(chr(34), chr(39))}"')
+        aliases = by_name[name]["aliases"]
+        if aliases:
+            out.append("    aliases:")
+            for a in aliases:
+                out.append(f'      - "{a.replace(chr(34), chr(39))}"')
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(out) + "\n")
+    return added, updated, removed
+
+
+def build_overrides(payload):
+    """`## 지도` 절 → {"hidden": [...], "renamed": [{from,to}]}.
+
+    형식은 사람이 Issue에 손으로 적어도 되게 단순하게 둔다:
+
+        ## 지도
+        ### 감추기
+        - 오늘 한 것
+        ### 이름 합치기
+        - Fréchet 평균 → Fréchet mean
+
+    화살표는 `→`·`->`·`=>`를 받는다. 개념 지도(`←`)와 방향이 **반대**인 것이 중요하다:
+    저기서는 "무엇이 필요한가"이고 여기서는 "무엇으로 바뀌는가"다.
+    """
+    body = assemble(payload)
+    _, section = pop_section(body, OVERRIDES_SECTION)
+    if not section:
+        return {}
+
+    hidden, renamed, mode = [], [], ""
+    for line in section.splitlines():
+        head = re.match(r"^#{3,}\s*(.+?)\s*$", line.strip())
+        if head:
+            name = head.group(1).strip()
+            mode = "hidden" if "감추" in name else "renamed" if "이름" in name or "합치" in name else ""
+            continue
+        item = re.match(r"^\s*[-*+]\s+(.+)$", line)
+        if not item:
+            continue
+        value = item.group(1).strip().strip("`")
+        if mode == "hidden":
+            if value:
+                hidden.append(value)
+        elif mode == "renamed":
+            parts = re.split(r"→|->|=>", value, maxsplit=1)
+            if len(parts) == 2:
+                src, dst = parts[0].strip().strip("`"), parts[1].strip().strip("`")
+                if src and dst:
+                    renamed.append({"from": src, "to": dst})
+
+    if not hidden and not renamed:
+        return {}
+    return {"hidden": hidden, "renamed": renamed}
+
+
+def merge_overrides(new, path=OVERRIDES_PATH):
+    """concepts-overrides.yaml 병합 — 지금 것에 **더한다**(지우지 않는다).
+
+    덮어쓰지 않는 이유는 subjects.yaml과 같다: 이 파일은 여러 세션에 걸쳐 자란다.
+    이번에 안 적은 항목을 지우면 지난번에 감춘 노드가 슬그머니 되살아난다.
+
+    되돌리기는 사용자가 이 파일에서 한 줄을 지우는 것으로 한다 — 감추기를 취소하는
+    Issue를 또 만들면, 무엇이 현재 상태인지가 Issue 이력에 흩어진다.
+    """
+    header, hidden, renamed = [], [], []
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            lines = f.read().splitlines()
+        cut = next((i for i, l in enumerate(lines) if re.match(r"^(hidden|renamed):", l)), len(lines))
+        header = lines[:cut]
+        mode, pending = "", None
+        for line in lines[cut:]:
+            if line.lstrip().startswith("#"):
+                continue
+            m = re.match(r"^(hidden|renamed):\s*(\[\])?\s*$", line)
+            if m:
+                mode, pending = m.group(1), None
+                continue
+            if mode == "hidden":
+                item = re.match(r"^\s*-\s+(.+)$", line)
+                if item:
+                    hidden.append(item.group(1).strip().strip("\"'"))
+            elif mode == "renamed":
+                f_m = re.match(r"^\s*-\s*from:\s*(.+)$", line)
+                t_m = re.match(r"^\s*to:\s*(.+)$", line)
+                if f_m:
+                    pending = {"from": f_m.group(1).strip().strip("\"'")}
+                elif t_m and pending:
+                    pending["to"] = t_m.group(1).strip().strip("\"'")
+                    renamed.append(pending)
+                    pending = None
+    if not header:
+        header = [
+            "# 지식 그래프 손보기 — 지도만 고친다. 기록(daily 노트)은 그대로 둔다.",
+            "#",
+            "# hidden   그래프에서 뺀다 (한 줄 지우면 되돌아온다)",
+            "# renamed  같은 것으로 합친다 (별칭이라 다음 세션에도 계속 합쳐진다)",
+        ]
+
+    added_hidden = [h for h in (new.get("hidden") or []) if h not in hidden]
+    hidden.extend(added_hidden)
+
+    known = {(r.get("from"), r.get("to")) for r in renamed}
+    added_renamed = [
+        r for r in (new.get("renamed") or [])
+        # 자기 자신으로 바꾸기는 무한 루프의 씨앗이라 파일에 넣지 않는다.
+        if r.get("from") and r.get("to") and r["from"] != r["to"]
+        and (r["from"], r["to"]) not in known
+    ]
+    renamed.extend(added_renamed)
+
+    def quote(v):
+        return '"' + str(v).replace('"', "'") + '"'
+
+    out = list(header)
+    if out and out[-1].strip():
+        out.append("")
+    out.append("hidden:" if hidden else "hidden: []")
+    out.extend(f"  - {quote(h)}" for h in hidden)
+    out.append("")
+    out.append("renamed:" if renamed else "renamed: []")
+    for r in renamed:
+        out.append(f"  - from: {quote(r['from'])}")
+        out.append(f"    to: {quote(r['to'])}")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(out) + "\n")
+    return added_hidden, added_renamed
+
+
+def merge_tracks(new, path=TRACKS_PATH):
+    """tracks.yaml을 id 단위로 병합한다(topics와 같은 규칙).
+
+    ⚠️ 트랙을 지워도 `daily/<id>/`의 기록은 지우지 않는다 — 서랍 목록에서 빠질 뿐,
+    그동안 공부한 것은 학습자의 것이다.
+    """
+    header, existing = [], []
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as f:
+            lines = f.read().splitlines()
+        cut = next((i for i, l in enumerate(lines) if re.match(r"^tracks:", l)), len(lines))
+        header = lines[:cut]
+        cur = None
+        for line in lines[cut:]:
+            m = re.match(r"^\s*-\s*(\w+):\s*(.*)$", line)
+            if m:
+                cur = {m.group(1): m.group(2).strip().strip("\"'")}
+                existing.append(cur)
+                continue
+            m = re.match(r"^\s+(\w+):\s*(.*)$", line)
+            if m and cur is not None:
+                cur[m.group(1)] = m.group(2).strip().strip("\"'")
+    if not header:
+        header = [
+            "# 학습 트랙 — 세션을 담는 서랍. 러너가 `[설정]` Issue로 갱신한다.",
+            "#",
+            "# 세션 노트는 `daily/<id>/`에 쌓인다. 트랙이 없으면 `daily/` 루트에 그대로 쌓인다",
+            "# (지금까지 쓰던 방식 — 트랙은 선택이다).",
+            "#",
+            "# id는 폴더 이름이라 영문 소문자-하이픈, label은 사람이 보는 이름이다.",
+            "",
+        ]
+
+    by_id = {t.get("id"): t for t in existing if t.get("id")}
+    order = [t.get("id") for t in existing if t.get("id")]
+    added, updated, removed = [], [], []
+    for t in new:
+        tid = t["id"]
+        if t.get("remove"):
+            if tid in by_id:
+                by_id.pop(tid)
+                order.remove(tid)
+                removed.append(tid)
+            continue
+        if tid in by_id:
+            by_id[tid].update({k: v for k, v in t.items() if k != "remove"})
+            updated.append(tid)
+        else:
+            by_id[tid] = {k: v for k, v in t.items() if k != "remove"}
+            order.append(tid)
+            added.append(tid)
+
+    out = list(header)
+    if out and out[-1].strip():
+        out.append("")
+    out.append("tracks:" if order else "tracks: []")
+    for tid in order:
+        t = by_id[tid]
+        out.append(f"  - id: {tid}")
+        for key in TRACK_FIELDS:
+            if t.get(key):
+                out.append(f'    {key}: "{str(t[key]).replace(chr(34), chr(39))}"')
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(out) + "\n")
+    return added, updated, removed
 
 
 def merge_topics(new, path=TOPICS_PATH):
@@ -1069,14 +1712,22 @@ def merge_topics(new, path=TOPICS_PATH):
     return added, updated, removed
 
 
-def ensure_reading_status(today):
+def ensure_status_file(path, template, today):
     """없으면 만든다 — 있으면 손대지 않는다(학습자의 기록이다)."""
-    if os.path.exists(READING_STATUS_PATH):
+    if os.path.exists(path):
         return False
-    os.makedirs(PAPERS_DIR, exist_ok=True)
-    with open(READING_STATUS_PATH, "w", encoding="utf-8") as f:
-        f.write(READING_STATUS_TEMPLATE.format(today=today))
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(template.format(today=today))
     return True
+
+
+def ensure_reading_status(today):
+    return ensure_status_file(READING_STATUS_PATH, READING_STATUS_TEMPLATE, today)
+
+
+def ensure_material_status(today):
+    return ensure_status_file(MATERIAL_STATUS_PATH, MATERIAL_STATUS_TEMPLATE, today)
 
 
 # --------------------------------------------------------------------------- main
@@ -1135,9 +1786,91 @@ def main():
 
     # `[설정]` — 학습 기록이 아니라 설정 파일(topics.yaml)의 쓰기 경로다.
     if (payload.get("title") or "").startswith("[설정]"):
+        # 트랙(학습 서랍)과 주제(논문 수집)는 같은 `[설정]` Issue로 온다 — 둘 다 설정이고,
+        # 사용자에게 "이건 어느 Issue로 쓰지"를 고르게 하지 않는다.
+        tracks = build_tracks(payload)
+        if tracks:
+            added, updated, removed = merge_tracks(tracks)
+            report = [f"✅ 학습 트랙 갱신 — `{TRACKS_PATH}`", ""]
+            if added:
+                report.append(f"- 추가: {', '.join(f'`{t}`' for t in added)} → 세션은 `daily/<id>/`에 쌓인다")
+            if updated:
+                report.append(f"- 갱신: {', '.join(f'`{t}`' for t in updated)}")
+            if removed:
+                report.append(
+                    f"- 목록에서 제거: {', '.join(f'`{t}`' for t in removed)} "
+                    "(그동안의 기록은 지우지 않는다)"
+                )
+            report += ["", "> 다음 세션부터 러너가 \"오늘은 어느 트랙?\"을 묻고 그 폴더에 저장한다."]
+            text = "\n".join(report)
+            print(text)
+            if args.report:
+                with open(args.report, "w", encoding="utf-8") as f:
+                    f.write(text + "\n")
+            if not build_topics(payload):
+                return
+
+        overrides = build_overrides(payload)
+        if overrides:
+            if args.dry_run:
+                print(f"[dry-run] {OVERRIDES_PATH}\n")
+                print(json.dumps(overrides, ensure_ascii=False, indent=2))
+                return
+            added_hidden, added_renamed = merge_overrides(overrides)
+            report = [f"✅ 지식 그래프 손보기 — `{OVERRIDES_PATH}`", ""]
+            if added_hidden:
+                report.append(f"- 감춤: {', '.join(f'`{h}`' for h in added_hidden)}")
+            if added_renamed:
+                report.append(
+                    "- 이름 합치기: "
+                    + ", ".join(f"`{r['from']}` → `{r['to']}`" for r in added_renamed)
+                )
+            if not added_hidden and not added_renamed:
+                report.append("- 바뀐 것 없음 (이미 적용돼 있다)")
+            report += [
+                "",
+                "> **노트와 원장은 그대로다.** 그래프에서만 빠진다 — 되돌리려면 "
+                f"`{OVERRIDES_PATH}`에서 그 줄을 지우면 다음 빌드에 돌아온다.",
+            ]
+            text = "\n".join(report)
+            print(text)
+            if args.report:
+                with open(args.report, "w", encoding="utf-8") as f:
+                    f.write(text + "\n")
+            return
+
+        subjects = build_subjects(payload)
+        if subjects:
+            if args.dry_run:
+                print(f"[dry-run] {SUBJECTS_PATH}\n")
+                print(json.dumps(subjects, ensure_ascii=False, indent=2))
+                return
+            added, updated, removed = merge_subjects(subjects)
+            report = [f"✅ 분야 갱신 — `{SUBJECTS_PATH}`", ""]
+            if added:
+                report.append(f"- 추가: {', '.join(f'`{t}`' for t in added)}")
+            if updated:
+                report.append(f"- 별칭 추가: {', '.join(f'`{t}`' for t in updated)}")
+            if removed:
+                report.append(f"- 삭제: {', '.join(f'`{t}`' for t in removed)}")
+            report += [
+                "",
+                "> 다음 세션의 개념 지도부터 이 이름으로 합쳐집니다. 지난 노트는 고치지 "
+                "않습니다 — 합치기는 그래프를 만들 때 일어납니다(`build_concepts`).",
+            ]
+            text = "\n".join(report)
+            print(text)
+            if args.report:
+                with open(args.report, "w", encoding="utf-8") as f:
+                    f.write(text + "\n")
+            return
+
         topics = build_topics(payload)
         if not topics:
-            raise SystemExit("주제를 하나도 못 읽었다 — `### <id> | <라벨>` 형식이어야 한다.")
+            raise SystemExit(
+                "`## 트랙`·`## 분야`·`## 주제` 중 어느 절도 못 읽었다 — "
+                "`[설정]` Issue는 그중 한 절에 `### <이름>` 형식으로 적어야 한다."
+            )
         if args.dry_run:
             print(f"[dry-run] {TOPICS_PATH}\n")
             print(json.dumps(topics, ensure_ascii=False, indent=2))
@@ -1177,29 +1910,74 @@ def main():
     # `[자료]` — 세션 로그가 아니라 증류된 학습자료다. 별도 경로로 저장하고 끝낸다.
     if (payload.get("title") or "").startswith("[자료]"):
         note = build_material(payload, args.today)
-        path = os.path.join(MATERIALS_DIR, f"{note['slug']}.md")
-        marker = f"source_issue: {payload.get('number')}"
-        if os.path.isdir(MATERIALS_DIR):
-            for name in sorted(os.listdir(MATERIALS_DIR)):
-                if name.endswith(".md"):
-                    cand = os.path.join(MATERIALS_DIR, name)
-                    with open(cand, encoding="utf-8") as f:
-                        if marker in f.read(2000):
-                            path = cand
-                            break
+        root = note["root"]
+        # 논문은 slug가 지시행으로 못박혀 있다(그 논문 폴더에 들어가야 한다).
+        slug = note["slug"] if root == PAPERS_DIR else (
+            existing_material_slug(payload.get("number")) or note["slug"]
+        )
+
+        if note["files"] is not None:
+            # 폴더형 — 증류와 원문을 나눈다. 경로 계약은 Topdown `materialPaths.ts`의
+            # `MATERIAL_RE`가 이미 허용한다(`materials/<slug>/(source|distilled).md`).
+            folder = os.path.join(root, slug)
+            writes = [(os.path.join(folder, name), c) for name, c in sorted(note["files"].items())]
+            # 같은 자료가 전에 단일 파일로 저장돼 있었다면 지운다. 남겨 두면 같은 개념
+            # 지도가 두 번 읽혀 그래프에 중복 간선이 생긴다(빌더는 materials/**를 다 본다).
+            stale = os.path.join(root, f"{slug}.md")
+        else:
+            writes = [(os.path.join(root, f"{slug}.md"), note["flat"])]
+            stale = None
+
         if args.dry_run:
-            print(f"[dry-run] {path}\n")
-            print(note["content"])
+            for path, content in writes:
+                print(f"[dry-run] {path}\n")
+                print(content)
             return
-        os.makedirs(MATERIALS_DIR, exist_ok=True)
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(note["content"])
-        report = [
-            f"✅ 자료 지도 저장 — `{path}` ({len(note['content'].splitlines())}줄)",
-            "",
-            "- 원문 PDF는 저장하지 않았다(저작권·용량) — 요약·개념 지도·빈칸 문제 은행만 남는다.",
-            "- 다음 세션부터 러너가 이 파일을 readFile로 끌어와 쓴다.",
-        ]
+        for path, content in writes:
+            os.makedirs(os.path.dirname(path) or MATERIALS_DIR, exist_ok=True)
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(content)
+        if stale and os.path.isfile(stale):
+            os.remove(stale)
+
+        path = writes[0][0]
+        saved = " · ".join(f"`{p}` ({len(c.splitlines())}줄)" for p, c in writes)
+        if note["files"] and len(writes) > 1:
+            report = [
+                f"✅ 자료 저장 — {saved}",
+                "",
+                "- 요약·개념 지도·빈칸 문제 은행이 증류본에 있다 — `## 개념 지도`는 그래프로 간다.",
+                "- 증류본의 `## 원문 목차`에서 절을 고르고 "
+                "`read_doc`의 `section`으로 그 절의 원문만 읽는다.",
+                "- 원문은 그대로 보존됐다 — 인용 근거이고, 러너가 읽을 수 있다.",
+            ]
+        elif note["files"] and not note["distilled"]:
+            report = [
+                f"✅ 원문 저장 — {saved}",
+                "",
+                "- ⚠️ **증류는 없다** — `## 개념 지도`가 없어 그래프에 들어가는 것은 없다.",
+                "- 원문은 그대로 보존됐다. 러너가 `read_doc`으로 절 단위로 읽을 수 있다.",
+            ]
+        elif note["distilled"]:
+            lines = len(writes[0][1].splitlines())
+            report = [
+                f"✅ 자료 지도 저장 — `{path}` ({lines}줄)",
+                "",
+                "- 요약·개념 지도·빈칸 문제 은행이 들어 있다 — `## 개념 지도`는 그래프로 간다.",
+                "- 다음 세션부터 러너가 이 파일을 readFile로 끌어와 쓴다.",
+            ]
+        else:
+            # 증류를 대신 해 주지 않는다(이 CI는 LLM 토큰 0이 원칙이다). 대신 무엇이 저장됐고
+            # 무엇이 없는지 정확히 말한다 — 라벨과 보고가 어긋나면 저작권 판단까지 오도한다.
+            report = [
+                f"✅ 자료 원문 저장 — `{path}` ({len(writes[0][1].splitlines())}줄)",
+                "",
+                "- ⚠️ **증류는 없다** — `## 개념 지도`가 없어 `tags: [material, raw]`로 적었다.",
+                "  그래프에 들어가는 것은 없다(선수관계는 `## 개념 지도`에서만 읽는다).",
+                "- 세션에서 이 자료를 증류하려면 러너에게 "
+                "`이 자료 증류해줘 — 요약·개념 지도·빈칸 문제로.`라고 한다.",
+                "- 다음 세션부터 러너가 이 파일을 readFile로 끌어와 쓴다.",
+            ]
         text = "\n".join(report)
         print(text)
         if args.report:
@@ -1215,16 +1993,34 @@ def main():
     if len(note["content"].strip().splitlines()) < 4:
         raise SystemExit("본문이 비었다 — 수집할 내용이 없다.")
 
-    path = target_path(note["date"], note["slug"], payload.get("number"))
+    # 트랙(과목 서랍) — 있으면 `daily/<track>/`으로 간다. 러너가 안 적었거나 없는 이름을
+    # 적었으면 루트에 쓰고 **그 사실을 회신에 적는다**(조용히 섞이면 다음 세션이 헷갈린다).
+    tracks = load_tracks()
+    track = resolve_track(note["track"], tracks)
+    track_note = ""
+    if tracks and not track:
+        names = ", ".join(f"`{t['id']}`" for t in tracks)
+        why = "`track:`을 적지 않아" if not note["track"] else f"`{note['track']}`와 맞는 트랙이 없어"
+        track_note = f"⚠️ {why} `daily/` 루트에 저장했다. 쓸 수 있는 트랙: {names}"
+
+    path = target_path(note["date"], note["slug"], payload.get("number"), track)
     if args.dry_run:
         print(f"[dry-run] {path}\n")
         print(note["content"])
         return
 
-    os.makedirs(DAILY_DIR, exist_ok=True)
+    os.makedirs(os.path.dirname(path) or DAILY_DIR, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(note["content"])
     applied = apply_status_patch(note["status_patch"], args.today)
+    # 자료 진도 — 논문의 READING_STATUS와 같은 기계다(절 교체). 절이 없으면 아무 일도 없다.
+    # `applied`에 섞지 않는다 — 섞으면 보고가 "STATUS.md 갱신"이라고 거짓말한다.
+    material_applied = []
+    if note["material_patch"]:
+        ensure_material_status(args.today)
+        material_applied = apply_section_patch(
+            note["material_patch"], args.today, path=MATERIAL_STATUS_PATH
+        )
     if append_trajectory(note["display"], note["date"], path, args.today):
         applied.append(TRAJECTORY_SECTION)
     promoted = write_mastery_fragment(note["mastery"], note["track"], note["date"], note["slug"], path)
@@ -1236,8 +2032,16 @@ def main():
         "",
         f"- 수집 조각: 본문 1 + 코멘트 {len(payload.get('comments') or [])}개",
     ]
+    if track:
+        report.append(f"- 트랙: `{track}` (같은 과목의 세션은 이 폴더에 모인다)")
+    elif track_note:
+        report.append(f"- {track_note}")
     if applied:
         report.append(f"- STATUS.md 갱신: {', '.join(applied)}")
+    if material_applied:
+        report.append(
+            f"- 자료 진도 갱신: `{MATERIAL_STATUS_PATH}` — {', '.join(material_applied)}"
+        )
     if promoted:
         report.append(f"- 이해도 승급 조각: `{promoted}`" if promoted.endswith(".md") else f"- {promoted}")
     if drilled:
