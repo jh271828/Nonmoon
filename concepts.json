@@ -56,17 +56,17 @@
      "match": "Die Pad는 연결이 시작되는 접점이지만, 미세한 배선을 PCB 수준으로 넓게 재배선하는 주된 역할은 Substrate가 담당한다."
     },
     {
-     "file": "daily/2026-08-06-hbm-2.md",
-     "kind": "취약",
-     "match": "Die Pad와 RDL의 관계"
-    },
-    {
      "file": "daily/2026-08-06-hbm-3.md",
      "kind": "취약",
      "match": "Die Pad와 RDL의 관계"
     },
     {
      "file": "daily/2026-08-06-hbm.md",
+     "kind": "취약",
+     "match": "Die Pad와 RDL의 관계"
+    },
+    {
+     "file": "daily/2026-08-14-die.md",
      "kind": "취약",
      "match": "Die Pad와 RDL의 관계"
     }
