@@ -1,6 +1,16 @@
 {
  "concepts": [
   {
+   "id": "hbm-bandwidth와-wide-io의-관계",
+   "label": "HBM bandwidth와 wide I/O의 관계",
+   "domain": "미분류",
+   "state": "memorized",
+   "importance": "T",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
    "id": "칩-패키지의-전체-신호-경로",
    "label": "칩 패키지의 전체 신호 경로",
    "domain": "반도체 패키징",

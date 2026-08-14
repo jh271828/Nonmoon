@@ -30,16 +30,17 @@ kind: status
 
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.
-1. Die Pad와 RDL의 관계
-2. Package Substrate의 내부 배선 구조
-3. TSV와 Micro Bump의 역할 분담
-4. 칩의 일반적인 구성과 패키징 신호 경로는 아직 직접 설명하거나 검증하지 않음.
+1. Bandwidth를 처음에는 단순히 정보를 보내는 속도로 이해했으나, 단위 시간당 전송 가능한 데이터 양이라는 구분을 더 복습할 필요가 있음.
+2. GDDR이 GPU와 micro-bump로 직접 연결된다고 생각했음. 일반적인 GDDR은 별도 메모리 패키지로 GPU와 주로 PCB 배선을 통해 연결된다는 점을 다시 확인할 필요가 있음.
+3. GDDR이 HBM처럼 I/O 개수를 크게 늘리기 어려운 이유를 아직 교정 후 자기 말로 다시 설명하지 않음.
+4. Die Pad와 RDL의 관계
+5. Package Substrate의 내부 배선 구조
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 다음 세션에서 다시 물을 것. 러너가 채워 나간다.
-1. Die에서 외부 회로까지 신호가 어떤 경로로 이동하는가?
-2. Die Pad와 RDL은 각각 어떤 역할을 하는가?
-3. TSV와 Micro Bump는 각각 신호 경로의 어디를 담당하는가?
+1. Bandwidth가 높다는 것은 정확히 무엇을 의미하는가?
+2. HBM의 높은 bandwidth에서 TSV와 silicon interposer는 각각 어떤 역할을 하는가?
+3. GDDR은 왜 HBM처럼 I/O 개수를 크게 늘리기 어려운가?
 
 ## 최근 궤적 (러너가 갱신)
 
@@ -49,6 +50,7 @@ kind: status
 - 2026-08-06 · HBM 패키징 신호 경로와 Interposer → [daily/2026-08-06-hbm-3.md](daily/2026-08-06-hbm-3.md)
 - 2026-08-04 · Die에서 외부 회로까지의 신호 경로 → [daily/2026-08-04-chip-package-signal-path.md](daily/2026-08-04-chip-package-signal-path.md)
 - 2026-08-14 · Die 신호 경로 설명 링크 반영 → [daily/2026-08-14-die.md](daily/2026-08-14-die.md)
+- 2026-08-14 · HBM Bandwidth 장점 이해 → [daily/2026-08-14-hbm-bandwidth.md](daily/2026-08-14-hbm-bandwidth.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
