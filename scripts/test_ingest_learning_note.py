@@ -238,6 +238,78 @@ def main():
         "Parking Lot" not in rich["body"] and "## 아티팩트" not in rich["body"],
     )
 
+    # ⑥-b `root:` 지시행 — 앱의 읽기 화면이 파킹랏·주석을 저장소로 올리게 되면서 열었다
+    #     (2026-08-14, 유지훈: *"파킹랏이나 주석이 … 항상 gpt가 읽을 수 있는 온라인으로"*).
+    #     렉처노트·교재는 `materials/`에 사는데 파킹랏을 받는 곳이 `papers/`밖에 없어서,
+    #     자료에 남긴 표시는 러너가 볼 수 없었다.
+    print("\n[논문] root: 지시행")
+    MARKS_BODY = """root: materials
+slug: ee202-lec08
+
+앱 읽기 화면에서 남긴 표시 2건 — 파킹랏 1 · 주석 1.
+
+## Parking Lot
+- phasor domain — 3쪽 · 왜 j가 붙나
+
+## 주석
+> "impedance is the ratio of phasors"
+— 저항과 무엇이 다른가 (4쪽)
+"""
+    marks = ingest.build_paper_session(
+        {"number": 51, "title": "[논문] ee202-lec08 — 읽기 표시 2026-08-14",
+         "body": MARKS_BODY, "comments": []},
+        "2026-08-14",
+    )
+    check("root: materials가 잡힌다", marks["root"] == "materials", marks["root"])
+    check("root 지시행은 세션 원문에서 빠진다", "root:" not in marks["body"], marks["body"][:80])
+    check("slug 지시행이 제목보다 이긴다", marks["slug"] == "ee202-lec08", marks["slug"])
+    check("파킹랏 항목이 잡힌다", "phasor domain" in marks["parking"])
+    check("주석이 annotations.md로 간다", "annotations.md" in marks["section_patches"])
+
+    check("root:가 없으면 papers가 기본이다", paper["root"] == "papers", paper["root"])
+
+    # 모르는 뿌리는 **기본값으로 떨어뜨린다.** 거부하면 러너가 오타 하나로 세션 기록을
+    # 잃는다. 그리고 이 값이 `os.path.join`의 첫 칸이 되므로 경로 탈출은 절대 통과하면 안 된다.
+    for bad in ("../../etc", "daily", ".github", "/papers", "papers/../..", ""):
+        got = ingest.parse_root(bad)
+        check(f"모르는 뿌리는 papers로 떨어진다 ({bad!r})", got == "papers", got)
+    check("papers는 그대로", ingest.parse_root("papers") == "papers")
+    check("materials는 그대로", ingest.parse_root("materials") == "materials")
+    check("앞뒤 공백·슬래시를 다듬는다", ingest.parse_root("  materials/  ") == "materials")
+
+    # 실제로 `materials/<slug>/`에 쓰는지 — 경로가 갈리는 지점이라 파일로 확인한다.
+    import tempfile as _tf
+    _cwd = os.getcwd()
+    with _tf.TemporaryDirectory() as tmp2:
+        os.chdir(tmp2)
+        try:
+            touched, _applied, extra = ingest.write_paper_session(
+                marks, {"number": 51}, "2026-08-14")
+            parking_path = os.path.join("materials", "ee202-lec08", "parking-lot.md")
+            check("세션이 materials/ 아래로 간다",
+                  touched[0].startswith(os.path.join("materials", "ee202-lec08")), touched[0])
+            check("파킹랏이 materials/<slug>/parking-lot.md에 생긴다",
+                  os.path.exists(parking_path), str(touched))
+            check("papers/ 아래에는 아무것도 안 생긴다",
+                  not os.path.exists(os.path.join("papers", "ee202-lec08")))
+            text = open(parking_path, encoding="utf-8").read()
+            check("파킹랏 항목이 담긴다", "phasor domain" in text, text)
+            check("새 항목으로 센다", extra["parked"][0] == 1, str(extra["parked"]))
+            annot = open(os.path.join("materials", "ee202-lec08", "annotations.md"),
+                         encoding="utf-8").read()
+            check("주석이 Issue 번호 블록으로 감싸인다", "<!-- issue:51 -->" in annot, annot[:120])
+
+            # 같은 Issue를 다시 돌려도 중복이 안 쌓인다(코멘트마다 CI가 다시 돈다).
+            ingest.write_paper_session(marks, {"number": 51}, "2026-08-14")
+            again = open(os.path.join("materials", "ee202-lec08", "annotations.md"),
+                         encoding="utf-8").read()
+            check("재실행에도 주석이 한 벌이다",
+                  again.count("impedance is the ratio of phasors") == 1, again)
+            twice = open(parking_path, encoding="utf-8").read()
+            check("재실행에도 파킹랏이 한 벌이다", twice.count("phasor domain") == 1, twice)
+        finally:
+            os.chdir(_cwd)
+
     import tempfile
     with tempfile.TemporaryDirectory() as tmp:
         path = os.path.join(tmp, "parking-lot.md")
@@ -261,6 +333,125 @@ def main():
         ingest.merge_meta(meta_path, {"understanding": "비판적 이해"}, "p", "2026-08-05")
         meta = open(meta_path, encoding="utf-8").read()
         check("meta.yaml은 키 단위로 병합된다", "title: T" in meta and "비판적 이해" in meta, meta)
+
+        # flow만 합집합 — 여러 세션에 걸쳐 통과한 단계가 덮어써지면 완료 판정이 안 난다.
+        flow_path = os.path.join(tmp, "meta-flow.yaml")
+        ingest.merge_meta(flow_path, {"flow": "한계, 문제"}, "p", "2026-08-15")
+        ingest.merge_meta(flow_path, {"flow": "방법"}, "p", "2026-08-16")
+        flow_meta = open(flow_path, encoding="utf-8").read()
+        check("flow는 세션을 넘어 쌓인다", "flow: 문제, 한계, 방법" in flow_meta, flow_meta)
+        # 다른 키를 적은 세션이 flow를 지우면 안 된다(러너는 이번에 통과한 것만 적는다).
+        ingest.merge_meta(flow_path, {"understanding": "기능적 이해"}, "p", "2026-08-17")
+        check("flow는 안 적은 세션에도 남는다",
+              "flow: 문제, 한계, 방법" in open(flow_path, encoding="utf-8").read())
+        check("모르는 단계 이름은 버린다", ingest.merge_flow(None, "요약, 결론") == "")
+
+        # ⑦ Position 절 — 이미 세션을 한 번 돌린(=템플릿 갱신 전에 만들어진) 파일에도
+        #    뒤늦게 절이 생겨야 다음 세션의 패치가 조용히 버려지지 않는다.
+        reading_path = os.path.join(tmp, "READING_STATUS.md")
+        with open(reading_path, "w", encoding="utf-8") as f:
+            f.write(
+                "---\ntitle: x\nupdated: 2026-08-01\n---\n\n"
+                "## Progress\n\n- (아직 없음)\n\n"
+                "## Current Understanding\n\n- (아직 없음)\n\n"
+                "## Next Session\n\n- (다음 세션의 시작점 한 줄)\n"
+            )
+        migrated = ingest.ensure_position_section(reading_path)
+        check("Position 절이 없는 기존 파일에 붙는다", migrated,
+              open(reading_path, encoding="utf-8").read())
+        check("Progress 절은 그대로 남는다",
+              "## Progress" in open(reading_path, encoding="utf-8").read())
+
+        again = ingest.ensure_position_section(reading_path)
+        check("이미 있으면 다시 손대지 않는다(멱등)", again is False)
+        check("절이 중복되지 않는다",
+              open(reading_path, encoding="utf-8").read().count("## Position") == 1)
+
+        ingest.apply_section_patch(
+            {"Position": '- cs224n-lec08: "attention은 모든 위치를 동시에 고려한다"'},
+            "2026-08-08", path=reading_path)
+        out = open(reading_path, encoding="utf-8").read()
+        check("마이그레이션 뒤에는 Position 패치가 실제로 적용된다",
+              "attention은 모든 위치를 동시에 고려한다" in out, out)
+
+        fresh_path = os.path.join(tmp, "READING_STATUS_fresh.md")
+        ingest.ensure_status_file(fresh_path, ingest.READING_STATUS_TEMPLATE, "2026-08-08")
+        check("새로 만든 파일은 처음부터 Position 절을 가진다",
+              "## Position" in open(fresh_path, encoding="utf-8").read())
+
+        # ⑧ 자료 삭제 — 이 저장소에서 **파일을 지우는 유일한 경로**다. 앱도 자기 쪽에서
+        #    막지만 Issue는 사람이 손으로도 만들 수 있으므로 여기가 마지막 관문이다.
+        print("\n자료 삭제 — 모양 가드")
+        good, bad = ingest.parse_delete_targets(
+            "- papers/attn-demo\n- materials/피어싱-논문\n- `papers/quoted`\n"
+        )
+        check("정상 경로를 읽는다", good == [
+            ("papers", "attn-demo"), ("materials", "피어싱-논문"), ("papers", "quoted"),
+        ], str(good))
+        check("정상만 있으면 버린 것이 없다", bad == [], str(bad))
+
+        # 이 목록이 통과하면 CI가 repo 루트에서 그것을 지운다.
+        danger = (
+            "- papers/..\n"
+            "- papers/../../etc\n"
+            "- ../papers/x\n"
+            "- daily/2026-08-01\n"
+            "- .github/workflows\n"
+            "- papers/a/b\n"
+            "- papers/\n"
+            "- /etc/passwd\n"
+            "- papers/a b\n"
+        )
+        d_ok, d_bad = ingest.parse_delete_targets(danger)
+        check("경로 탈출·다른 뿌리를 전부 막는다", d_ok == [], str(d_ok))
+        check("막은 것을 보고한다(조용히 버리지 않는다)", len(d_bad) == 9, str(d_bad))
+
+        check("안내용 인용줄은 대상이 아니다",
+              ingest.parse_delete_targets("> papers/x 를 지운다\n")[0] == [])
+
+        # 실제로 지운다 — 폴더 통째로 + 옛 단일 파일 + 진도 파일의 그 slug 줄.
+        del_dir = os.path.join(tmp, "delete-case")
+        os.makedirs(os.path.join(del_dir, "papers", "gone", "sessions"))
+        os.makedirs(os.path.join(del_dir, "papers", "keep"))
+        os.makedirs(os.path.join(del_dir, "materials"))
+        for p, body in [
+            (["papers", "gone", "source.md"], "원문"),
+            (["papers", "gone", "paper.md"], "정제본"),
+            (["papers", "gone", "sessions", "2026-08-01-methods.md"], "세션"),
+            (["papers", "keep", "source.md"], "남아야 한다"),
+            (["materials", "old-single.md"], "옛 단일 파일"),
+        ]:
+            with open(os.path.join(del_dir, *p), "w", encoding="utf-8") as f:
+                f.write(body)
+        with open(os.path.join(del_dir, "papers", "READING_STATUS.md"), "w", encoding="utf-8") as f:
+            f.write(
+                "# 논문 읽기 상태\n\n## Progress\n\n- gone: 3장까지 읽음\n- keep: 1장\n\n"
+                "## Position\n\n- gone: \"인용문\"\n"
+            )
+
+        cwd = os.getcwd()
+        try:
+            os.chdir(del_dir)
+            removed, missing, touched = ingest.delete_materials(
+                [("papers", "gone"), ("materials", "old-single"), ("papers", "없는것")]
+            )
+        finally:
+            os.chdir(cwd)
+
+        check("폴더가 통째로 사라진다", not os.path.exists(os.path.join(del_dir, "papers", "gone")))
+        check("옛 단일 파일도 지운다",
+              not os.path.exists(os.path.join(del_dir, "materials", "old-single.md")))
+        check("다른 자료는 멀쩡하다",
+              os.path.exists(os.path.join(del_dir, "papers", "keep", "source.md")))
+        check("지운 것을 보고한다", sorted(removed) == ["materials/old-single", "papers/gone"], str(removed))
+        check("이미 없던 것을 구별한다", missing == ["papers/없는것"], str(missing))
+
+        status_after = open(os.path.join(del_dir, "papers", "READING_STATUS.md"), encoding="utf-8").read()
+        check("진도 파일에서 그 slug 줄이 빠진다", "gone:" not in status_after, status_after)
+        check("다른 자료의 진도는 남는다", "- keep: 1장" in status_after, status_after)
+        check("절 구조는 그대로다",
+              "## Progress" in status_after and "## Position" in status_after, status_after)
+        check("진도 파일을 고쳤다고 보고한다", len(touched) == 1, str(touched))
 
         art_dir = os.path.join(tmp, "artifacts")
         os.makedirs(art_dir)
@@ -641,6 +832,85 @@ updated: 2026-08-02
     #
     # 원문을 절 단위로 읽게 되면서 "오늘 어느 절부터인가"가 세션의 첫 물음이 됐다.
     # 기록이 없으면 러너가 daily에서 짐작하고, 짐작이 틀리면 이미 한 절을 또 한다.
+    # ── 학습 설계도 — 순서의 SSOT (2026-08-10) ────────────────────────────────
+    #
+    # 이 파일은 `git add` 범위에 없어서 **손으로만 갱신됐다.** 그래서 `[다음]`·`[완료]`
+    # 표시가 세션이 진행돼도 움직이지 않았다. 자료 진도와 같은 기계를 그대로 쓴다.
+    print("\n[학습] 학습 설계도")
+    with tempfile.TemporaryDirectory() as tmp:
+        cwd = os.getcwd()
+        try:
+            os.chdir(tmp)
+            os.makedirs("daily")
+            with open("STATUS.md", "w", encoding="utf-8") as f:
+                f.write("---\n---\n## 지금 약한 것\n- x\n")
+            with open("payload.json", "w", encoding="utf-8") as f:
+                json.dump({
+                    "number": 30, "title": "[학습] 2026-08-10 phase — 위상",
+                    "body": "## 목표\n- 위상\n\n## 오늘 직접 학습한 지식\n1. 위상은 같은 주파수의 cos/sin 비율이다\n\n"
+                            "## 학습 설계도\n### 학습 경로\n"
+                            "| 단계 | 주제 | 왜 이 순서 | 검증 기준 |\n|---|---|---|---|\n"
+                            "| 7 `[완료]` | 위상과 복소지수 | Fourier 뒤 | 진폭·위상 둘 다 필요한 이유 |\n",
+                }, f)
+            argv = sys.argv
+            sys.argv = ["ingest", "--payload", "payload.json", "--today", "2026-08-10"]
+            try:
+                ingest.main()
+            finally:
+                sys.argv = argv
+
+            # 파일이 없었으므로 견본이 먼저 생기고, 그 위에 절이 교체된다.
+            spec = open("learning-spec.md", encoding="utf-8").read()
+            check("설계도가 없으면 견본을 만든다", "kind: learning-spec" in spec, spec[:120])
+            check("mode: topdown 이 적힌다", "mode: topdown" in spec)
+            check("경로가 갱신된다", "위상과 복소지수" in spec, spec)
+            check("완료 표시가 들어간다", "`[완료]`" in spec)
+            note = open(f"daily/{os.listdir('daily')[0]}", encoding="utf-8").read()
+            check("설계도 절은 세션 노트에 안 남는다", "학습 설계도" not in note)
+        finally:
+            os.chdir(cwd)
+
+    # `[설정]`으로 처음 만드는 경로 — 새 사용자의 첫 파일이다.
+    with tempfile.TemporaryDirectory() as tmp:
+        cwd = os.getcwd()
+        try:
+            os.chdir(tmp)
+            with open("payload.json", "w", encoding="utf-8") as f:
+                json.dump({
+                    "number": 31, "title": "[설정] 학습 설계도",
+                    "body": "## 학습 설계도\n### 학습 목표\n- EEG 기반 조현병 분류를 스스로 설명한다\n"
+                            "### 없는 절이다\n- 이건 버려져야 한다\n",
+                }, f)
+            argv = sys.argv
+            sys.argv = ["ingest", "--payload", "payload.json", "--today", "2026-08-10",
+                        "--report", "report.md"]
+            try:
+                ingest.main()
+            finally:
+                sys.argv = argv
+
+            spec = open("learning-spec.md", encoding="utf-8").read()
+            check("[설정]으로 설계도가 생긴다", "EEG 기반 조현병 분류" in spec, spec[:200])
+            report = open("report.md", encoding="utf-8").read()
+            check("생성이라고 보고한다", "생성" in report, report)
+            # 없는 절에 보낸 패치는 조용히 버려진다 — 그것을 말해야 한다.
+            check("건너뛴 절을 말한다", "없는 절이다" in report and "건너뜀" in report, report)
+        finally:
+            os.chdir(cwd)
+
+    # ⚠️ 워크플로가 파일을 쓰고도 커밋하지 않는 조용한 실패 — 경계 주석과 `git add`가
+    #    함께 갱신돼야 한다. 하나만 고치면 설계도가 영원히 저장소에 안 올라간다.
+    print("\n[워크플로] 설계도가 커밋 범위에 있다")
+    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    wf = open(os.path.join(repo_root, ".github", "workflows", "learning-note-ingest.yml"),
+              encoding="utf-8").read()
+    add_line = [l for l in wf.splitlines() if "git add -A daily" in l]
+    check("git add 범위에 learning-spec.md", bool(add_line) and "learning-spec.md" in add_line[0],
+          add_line[0] if add_line else "(git add 줄을 못 찾음)")
+    boundary = [l for l in wf.splitlines() if l.startswith("# 경계:")]
+    check("경계 주석도 함께 갱신됐다", bool(boundary) and "learning-spec.md" in boundary[0],
+          boundary[0] if boundary else "(경계 주석을 못 찾음)")
+
     print("\n[학습] 자료 진도 갱신")
     with tempfile.TemporaryDirectory() as tmp:
         cwd = os.getcwd()
