@@ -11,6 +11,26 @@
    "note": ""
   },
   {
+   "id": "moores-law와-transistor-scaling의-관계",
+   "label": "Moore's Law와 transistor scaling의 관계",
+   "domain": "미분류",
+   "state": "memorized",
+   "importance": "T",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "classical-scaling의-한계",
+   "label": "Classical scaling의 한계",
+   "domain": "미분류",
+   "state": "memorized",
+   "importance": "스",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
    "id": "칩-패키지의-전체-신호-경로",
    "label": "칩 패키지의 전체 신호 경로",
    "domain": "반도체 패키징",

@@ -16,6 +16,8 @@ kind: mastery
 | 개념 | 상태 | 중요도 | 최근 검증일 | 증거(daily 세션) | 변화 메모(무엇이·왜 바뀌었나) |
 |---|---|---|---|---|---|
 | HBM bandwidth와 wide I/O의 관계 | memorized | TSV 구조를 통해서 Die의 정보들이 수직으로 내려가서 더 촘촘해진 Interposer에 도달한 이후, 다수의 병렬 I/O를 통해서 프로세서에 정보를 같은시간 내에 훨씬더 많은 정보를 전달할 수 있게 된다. 따라서 BW가 높아진다. |  |  |  |
+| Moore's Law와 transistor scaling의 관계 | memorized | transistor scaling은 트랜지스터 크기를 줄인다는 개념이고 Moore's Law는 이러한 transistor scaling이 2년마다 약 0.7배의 크기로 작아지는 경향성을 나타내는 현상이야. |  |  |  |
+| Classical scaling의 한계 | memorized | 스케일을 줄일때마다 nonideal effect들의 영향도 강해져. 정확히는 어떤 효과들이 있었는지 기억안나지만 복습하면 기억날 것 같아. 또한 Lithography에서도 한계가 있겠지. 분해능 문제? 있을 것 같아. |  |  |  |
 <!-- MASTERY-TABLE:END -->
 
 ## 읽는 법
