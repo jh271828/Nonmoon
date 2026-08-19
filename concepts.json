@@ -31,6 +31,26 @@
    "note": ""
   },
   {
+   "id": "high-aspect-ratio의-의미",
+   "label": "High aspect ratio의 의미",
+   "domain": "미분류",
+   "state": "memorized",
+   "importance": "구",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "dram-capacitor와-capacitance-확보",
+   "label": "DRAM capacitor와 capacitance 확보",
+   "domain": "미분류",
+   "state": "memorized",
+   "importance": "C",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
    "id": "칩-패키지의-전체-신호-경로",
    "label": "칩 패키지의 전체 신호 경로",
    "domain": "반도체 패키징",
