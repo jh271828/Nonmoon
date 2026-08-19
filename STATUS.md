@@ -33,26 +33,26 @@ kind: status
 1. High aspect ratio etching의 핵심 난점을 overetch/underetch뿐 아니라 깊은 구조에서 etching species 전달, reaction product 배출, 수직 profile 제어와 연결할 필요
 2. DRAM retention을 단순 RC time constant로만 설명하지 않고 저장 전하 Q=CV, leakage, sense margin 관점으로 연결할 필요
 3. D NAND를 모두 floating-gate 구조로 일반화하면 안 됨. charge-trap 방식도 존재
-4. DRAM과 3D NAND가 high aspect ratio 구조를 택한 서로 다른 이유를 아직 자기 말로 다시 설명하고 반박을 통과하지 않음
-5. HP를 복잡한 연산 가능으로 이해했으나 핵심은 연산 복잡도보다 높은 처리 성능을 우선하는 설계라는 구분 필요
+4. Slide 15 Atomic Scale Era에서 feature size가 원자 수십 개 수준이 될 때 원자 몇 개의 공정 오차가 상대적으로 커지는 이유는 아직 학습자가 설명하지 않음
+5. DRAM과 3D NAND가 high aspect ratio 구조를 택한 서로 다른 이유를 아직 자기 말로 다시 설명하고 반박을 통과하지 않음
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 다음 세션에서 다시 물을 것. 러너가 채워 나간다.
 1. High aspect ratio 구조에서 aspect ratio는 어떤 치수들의 비인가?
-2. D NAND의 적층 수가 증가할수록 etching과 deposition이 왜 어려워지는가?
+2. High aspect ratio가 커질수록 etching과 deposition은 왜 어려워지는가?
 3. DRAM scaling에서 capacitor의 면적이 줄어도 capacitance를 충분히 확보해야 하는 이유는 무엇인가?
 4. DRAM retention time을 단순한 RC 자연방전으로만 설명하면 무엇이 빠지는가?
-5. DRAM과 3D NAND는 각각 왜 high aspect ratio 구조가 필요해졌는가?
+5. feature size가 원자 몇십 개 수준까지 내려오면 왜 원자 몇 개의 공정 오차가 중요해지는가?
 
 ## 최근 궤적 (러너가 갱신)
 
-- 2026-08-06 · HBM 패키징 신호 경로와 Interposer → [daily/2026-08-06-hbm-3.md](daily/2026-08-06-hbm-3.md)
 - 2026-08-04 · Die에서 외부 회로까지의 신호 경로 → [daily/2026-08-04-chip-package-signal-path.md](daily/2026-08-04-chip-package-signal-path.md)
 - 2026-08-14 · Die 신호 경로 설명 링크 반영 → [daily/2026-08-14-die.md](daily/2026-08-14-die.md)
 - 2026-08-14 · HBM Bandwidth 장점 이해 → [daily/2026-08-14-hbm-bandwidth-2.md](daily/2026-08-14-hbm-bandwidth-2.md)
 - 2026-08-18 · EE463 Introduction과 Scaling → [daily/2026-08-18-ee463-introduction-scaling.md](daily/2026-08-18-ee463-introduction-scaling.md)
 - 2026-08-19 · EE463 Introduction 진행상황 반영 → [daily/2026-08-19-ee463-introduction.md](daily/2026-08-19-ee463-introduction.md)
 - 2026-08-19 · EE463 Introduction 진행상황 갱신 → [daily/2026-08-19-ee463-introduction-2.md](daily/2026-08-19-ee463-introduction-2.md)
+- 2026-08-19 · EE463 Process Technology Issues → [daily/2026-08-19-ee463-process-technology-issues.md](daily/2026-08-19-ee463-process-technology-issues.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**

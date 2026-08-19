@@ -20,6 +20,7 @@ kind: mastery
 | Classical scaling의 한계 | memorized | 스케일을 줄일때마다 nonideal effect들의 영향도 강해져. 정확히는 어떤 효과들이 있었는지 기억안나지만 복습하면 기억날 것 같아. 또한 Lithography에서도 한계가 있겠지. 분해능 문제? 있을 것 같아. |  |  |  |
 | High aspect ratio의 의미 | memorized | 구경 대비 높이 비율? |  |  |  |
 | DRAM capacitor와 capacitance 확보 | memorized | capacitor에 전하를 저장하므로써 정보를 저장하기 때문이며, 시간이 지날수록 cap의 전하는 자연방전되기 때문에 dram은 주기적으로 refresh를 해줘야 될 것 같아. 이때, C가 충분히 확보되어야 time constant가 커져서 비교적 덜 빨리 방전되겠지? |  |  |  |
+| DRAM과 3D NAND에서 high aspect ratio가 생기는 이유 | can_explain | dram은 면적은 줄지만, C는 어느정도수준을 유지해야 되기 때문에 C를 길게 만들면서 구조가 높아졌고, 3d nand는 memory cell 자체를 쌓아서 만드는 구조라서 애초에 구조가 높아져. |  |  |  |
 <!-- MASTERY-TABLE:END -->
 
 ## 읽는 법

@@ -51,6 +51,16 @@
    "note": ""
   },
   {
+   "id": "dram과-3d-nand에서-high-aspect-ratio가-생기는-이유",
+   "label": "DRAM과 3D NAND에서 high aspect ratio가 생기는 이유",
+   "domain": "미분류",
+   "state": "can_explain",
+   "importance": "D",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
    "id": "칩-패키지의-전체-신호-경로",
    "label": "칩 패키지의 전체 신호 경로",
    "domain": "반도체 패키징",
