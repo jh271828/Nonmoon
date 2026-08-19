@@ -46,13 +46,13 @@ kind: status
 
 ## 최근 궤적 (러너가 갱신)
 
-- 2026-08-06 · HBM 패키징의 기본 신호 경로 → [daily/2026-08-06-hbm.md](daily/2026-08-06-hbm.md)
 - 2026-08-06 · HBM 패키징 신호 경로와 Interposer → [daily/2026-08-06-hbm-3.md](daily/2026-08-06-hbm-3.md)
 - 2026-08-04 · Die에서 외부 회로까지의 신호 경로 → [daily/2026-08-04-chip-package-signal-path.md](daily/2026-08-04-chip-package-signal-path.md)
 - 2026-08-14 · Die 신호 경로 설명 링크 반영 → [daily/2026-08-14-die.md](daily/2026-08-14-die.md)
 - 2026-08-14 · HBM Bandwidth 장점 이해 → [daily/2026-08-14-hbm-bandwidth-2.md](daily/2026-08-14-hbm-bandwidth-2.md)
 - 2026-08-18 · EE463 Introduction과 Scaling → [daily/2026-08-18-ee463-introduction-scaling.md](daily/2026-08-18-ee463-introduction-scaling.md)
 - 2026-08-19 · EE463 Introduction 진행상황 반영 → [daily/2026-08-19-ee463-introduction.md](daily/2026-08-19-ee463-introduction.md)
+- 2026-08-19 · EE463 Introduction 진행상황 갱신 → [daily/2026-08-19-ee463-introduction-2.md](daily/2026-08-19-ee463-introduction-2.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
