@@ -61,6 +61,62 @@
    "note": ""
   },
   {
+   "id": "atomic-scale에서-공정-오차의-상대적-중요성",
+   "label": "Atomic scale에서 공정 오차의 상대적 중요성",
+   "domain": "미분류",
+   "state": "can_explain",
+   "importance": "1",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "atomic-scale-era의-의미와-scaling-지속",
+   "label": "Atomic Scale Era의 의미와 scaling 지속",
+   "domain": "미분류",
+   "state": "can_explain",
+   "importance": "반",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "process-control과-stochastic-effects",
+   "label": "Process Control과 Stochastic Effects",
+   "domain": "미분류",
+   "state": "can_explain",
+   "importance": "스",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling.md",
+     "kind": "취약",
+     "match": "Process Control과 Stochastic Effects의 차이는 구분했지만 stochastic effect가 발생하는 구체적인 물리적 예시는 아직 설명하지 않음"
+    }
+   ],
+   "note": ""
+  },
+  {
+   "id": "scaling과-process-innovation-및-architecture-evolution",
+   "label": "Scaling과 process innovation 및 architecture evolution",
+   "domain": "미분류",
+   "state": "can_explain",
+   "importance": "새",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "finfet-대비-gaa의-electrostatic-control",
+   "label": "FinFET 대비 GAA의 electrostatic control",
+   "domain": "미분류",
+   "state": "can_explain",
+   "importance": "3",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
    "id": "칩-패키지의-전체-신호-경로",
    "label": "칩 패키지의 전체 신호 경로",
    "domain": "반도체 패키징",

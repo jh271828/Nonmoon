@@ -21,6 +21,11 @@ kind: mastery
 | High aspect ratio의 의미 | memorized | 구경 대비 높이 비율? |  |  |  |
 | DRAM capacitor와 capacitance 확보 | memorized | capacitor에 전하를 저장하므로써 정보를 저장하기 때문이며, 시간이 지날수록 cap의 전하는 자연방전되기 때문에 dram은 주기적으로 refresh를 해줘야 될 것 같아. 이때, C가 충분히 확보되어야 time constant가 커져서 비교적 덜 빨리 방전되겠지? |  |  |  |
 | DRAM과 3D NAND에서 high aspect ratio가 생기는 이유 | can_explain | dram은 면적은 줄지만, C는 어느정도수준을 유지해야 되기 때문에 C를 길게 만들면서 구조가 높아졌고, 3d nand는 memory cell 자체를 쌓아서 만드는 구조라서 애초에 구조가 높아져. |  |  |  |
+| Atomic scale에서 공정 오차의 상대적 중요성 | can_explain | 1000개에서 +-2는 오차율이 0.2%인데, 20개에서 +-2는 오차율이 10%야. channel길이가 트랜지스터마다 10%씩이나 차이나면, 의도한 회로대로 작동하지 않을 가능성이 올라가니까. |  |  |  |
+| Atomic Scale Era의 의미와 scaling 지속 | can_explain | 반도체의 pitch크기가 원자 겨우 수백개~수십개의 크기와 비견될 정도로 작아지는 시기이기 때문. 아직까지도 목표한 scaling을 달성하고 있기 때문 |  |  |  |
+| Process Control과 Stochastic Effects | can_explain | 스케일링이 심화될수록, 오차가 전체 오차율에 크게 반영되기 때문에. 마찬가지로 무작위성에 의한 오차가, 전체 오차율에 더욱 큰 비중을 차지하기 때문에? process control은 가능, stochastic은 불가능 |  |  |  |
+| Scaling과 process innovation 및 architecture evolution | can_explain | 새로운 공정,새로운 구조, 새로운 재료, 새로운 기술을 적용하여 다양한 방식으로 크기를 줄여왔다라고 말해야 된다 |  |  |  |
+| FinFET 대비 GAA의 electrostatic control | can_explain | 3면에서 4면으로 바뀌면서, gate가 channel에 대한 electrostatic control을 강력하게 할 수 있고, 따라서 스케일링을 더욱 하더라도 원치않는 사이드이펙트를 방지할 수 있기때문에 |  |  |  |
 <!-- MASTERY-TABLE:END -->
 
 ## 읽는 법
