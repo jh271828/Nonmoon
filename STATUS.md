@@ -30,11 +30,11 @@ kind: status
 
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.
-1. Process Control과 Stochastic Effects의 차이는 구분했지만 stochastic effect가 발생하는 구체적인 물리적 예시는 아직 설명하지 않음
+1. Stochastic effect가 발생하는 구체적인 물리적 예시는 아직 설명하지 않음
 2. FinFET/GAA가 억제하는 short-channel effect와 leakage의 구체적인 물리는 아직 학습 범위 밖으로 미룸
-3. High aspect ratio etching의 핵심 난점을 overetch/underetch뿐 아니라 깊은 구조에서 etching species 전달, reaction product 배출, 수직 profile 제어와 연결할 필요
-4. DRAM retention을 단순 RC time constant로만 설명하지 않고 저장 전하 Q=CV, leakage, sense margin 관점으로 연결할 필요
-5. D NAND를 모두 floating-gate 구조로 일반화하면 안 됨. charge-trap 방식도 존재
+3. Process Control과 Stochastic Effects의 차이는 구분했지만 stochastic effect가 발생하는 구체적인 물리적 예시는 아직 설명하지 않음
+4. High aspect ratio etching의 핵심 난점을 overetch/underetch뿐 아니라 깊은 구조에서 etching species 전달, reaction product 배출, 수직 profile 제어와 연결할 필요
+5. DRAM retention을 단순 RC time constant로만 설명하지 않고 저장 전하 Q=CV, leakage, sense margin 관점으로 연결할 필요
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 다음 세션에서 다시 물을 것. 러너가 채워 나간다.
@@ -51,7 +51,7 @@ kind: status
 - 2026-08-19 · EE463 Introduction 진행상황 반영 → [daily/2026-08-19-ee463-introduction.md](daily/2026-08-19-ee463-introduction.md)
 - 2026-08-19 · EE463 Introduction 진행상황 갱신 → [daily/2026-08-19-ee463-introduction-2.md](daily/2026-08-19-ee463-introduction-2.md)
 - 2026-08-19 · EE463 Process Technology Issues → [daily/2026-08-19-ee463-process-technology-issues.md](daily/2026-08-19-ee463-process-technology-issues.md)
-- 2026-08-20 · EE463 Introduction — Atomic Scale Era와 Scaling 한계 → [daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling.md](daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling.md)
+- 2026-08-20 · EE463 Introduction — Atomic Scale Era와 Scaling 한계 → [daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md](daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
