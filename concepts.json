@@ -152,21 +152,21 @@
    "note": ""
   },
   {
-   "id": "clean-room-classification-class-x",
-   "label": "Clean room classification (Class X)",
-   "domain": "Semiconductor Manufacturing",
+   "id": "diamond-structure",
+   "label": "Diamond structure",
+   "domain": "Semiconductor Materials",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "three-tiered-impurity-control"
+    "crystal-structure"
    ],
    "sources": [],
    "note": ""
   },
   {
-   "id": "three-tiered-impurity-control",
-   "label": "Three-tiered impurity control",
-   "domain": "Semiconductor Manufacturing",
+   "id": "crystal-structure",
+   "label": "Crystal structure",
+   "domain": "Semiconductor Materials",
    "state": "미학습",
    "importance": "M",
    "prereq": [],
@@ -174,25 +174,62 @@
    "note": ""
   },
   {
-   "id": "rca-clean",
-   "label": "RCA clean",
-   "domain": "Semiconductor Manufacturing",
+   "id": "zincblende-structure",
+   "label": "Zincblende structure",
+   "domain": "Semiconductor Materials",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "three-tiered-impurity-control"
+    "diamond-structure"
    ],
    "sources": [],
    "note": ""
   },
   {
-   "id": "metal-contamination-removal-chemistry",
-   "label": "Metal contamination removal chemistry",
+   "id": "crystal-defects",
+   "label": "Crystal defects",
+   "domain": "Semiconductor Materials",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "crystal-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "miller-indices",
+   "label": "Miller indices",
+   "domain": "Crystallography",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "crystal-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "silicon-wafer-orientation",
+   "label": "Silicon wafer orientation",
    "domain": "Semiconductor Manufacturing",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "rca-clean"
+    "miller-indices",
+    "diamond-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "czochralski-method",
+   "label": "Czochralski method",
+   "domain": "Semiconductor Manufacturing",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "crystal-structure"
    ],
    "sources": [],
    "note": ""

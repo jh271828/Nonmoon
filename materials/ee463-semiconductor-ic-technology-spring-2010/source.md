@@ -3,119 +3,67 @@ title: "EE463 Semiconductor IC Technology  Spring, 2010"
 created: 2026-08-23
 updated: 2026-08-23
 tags: [material, source]
-source: "원문 텍스트 (그대로 보존) → Issue #64"
+source: "원문 텍스트 (그대로 보존) → Issue #65"
 kind: material
-source_issue: 64
+source_issue: 65
 ---
 
 # EE463 Semiconductor IC Technology  Spring, 2010
 
-### 머리글
+### 전문
 
 1
-Controlling unwanted impurities
-Modern IC factories employ a three tiered approach
-to control unwanted impurities:
-
-### 1 Clean rooms
-
-• Building chips in a clean environment
-
-### 2 Wafer cleaning
-
-• Chemically clean the wafers often and thoroughly
-
-### 3 Human control
-
-• Minimize the number of people working in the clea
+Crystal structure
+• Crystals are characterized by a unit cell which repeats in the x, y, z
+directions
 
 2
-SIA Roadmap
-Actual numbers are different from today’s data because there were many changes since the table
-was made. Nevertheless, you can get the general feeling about the requirement.
-LLS : Localized Light Scattering
-GOI : Gate oxide Integrity
+Planes and directions
+• Planes and directions are defined using an x, y, z coordinate system.
+• [111] direction is defined by a vector having components of 1 unit in x, y and z.
+• Planes are defined by Miller indices - reciprocals of the intercepts of the plane with
+the x, y and z axes.
+• The (100), (010), and (001) planes are all equivalent and are designated as {100}
 
 3
-Basic concepts
-Contaminants may consist of particles, organic
-films (photoresist), heavy metals or alkali ions
+Diamond structure
+• Silicon has the basic diamond crystal structure – two merged FCC cells offset by
+a/4 in x, y and z.
+• In unit cell, there are 4 more atoms than FCC cell, and each additional atom is
+placed at a distance of √3/4 in [111] direction.
 
 4
-Examples
-Example #1: MOS VTH is given by:
-If tox = 10 nm, then a 0.1 volt Vth shift can be caused by Q
-M
-= 6.5 x 10
-11
-cm
--2
-(< 0.1% monolayer or 10 ppm in the oxide).
-• Example #2: MOS DRAM
-Refresh time of several msec requires a generation lifetime of
-σ: capture cross section of the trap (~ 10
--15
-cm
-2
-),
-vth : minority carrier thermal velocity (~ 10
-7
-cm/sec)
-This requires N
-t
-(trap density) ~ 10
-12
-cm
--3
-or ~ 0.02 ppb (see text).
-These traps are normally associated with deep level impurities (Au, Cu, Fe, etc)
+Diamond structure
+ Si and Ge has the diamond structure and compound semiconductors such as GaAs
+have the zincblende structure.
+ Zincblende structure differs from the diamond structure only in that there are two
+different types of atoms in the lattice.
+ For silicon IC, (111) and (100) wafers are widely used.
+ (111) wafer means that the crystal terminates at the wafer surface on {111} planes.
+ (111) planes in silicon have the largest number of silicon atoms per unit area, while
+(100) planes the lowest.
+ (111) surface has higher densities of interface states due to higher number of
+dangling bonds. ⇒ That’s why most of MOS devices are fabricated on (100) wafer.
+ Many bipolar transistors have been fabricated on (111) because (111) orientation is
+easier to grow by Czochralski method.
 
 5
-Level 1 Contamination Reduction: Clean Factories
-• Air quality is measured by the “class” of the facility.
-Class X means that in each cubic foot of air in the factory, there are less than X total
-particles greater than 0.5μm in size
-• Typical office building is about class 100,000. State-of-the-art clean room is class 1.
+Defects in crystals
+ Various types of defects can exist in crystal or can be created by processing
+steps. In general these are detrimental to device performance.
+ V and I are 0-D defects, dislocation is 1-D defect, and stacking fault is 2-D defect.
+ 3-D defects are agglomerations of point defects, precipitates of dopants or
+impurities, and other 3D defects.
 
 6
-Level 1 Contamination Reduction: Clean Factories
-• Factory environment is cleaned by:
-‒ HEPA (High Efficiency Particulate Air) filters and recirculation for the air,
-‒ “Bunny suits” for workers.
-‒ Filtration of chemicals and gases.
-‒ Manufacturing protocols.
+Crystal growth - Czochralski
+ Essentially all Si wafers used for ICs today come from Czochralski grown crystals.
+ Polysilicon material is melted, held at close to 1415 °C, and a single crystal seed is
+used to start the crystal growth.
+ Pull rate, melt temperature and rotation rate are all important control parameters.
 
 7
-Level 2 Contamination Reduction: Wafer Cleaning
-
-8
-RCA clean is “standard process” used to remove
-organics, heavy metals and alkali ions
-
-9
-Modeling Wafer Cleaning
-• Cleaning involves removing particles, organics (photoresist) and metals from wafer
-surfaces.
-• Particles are largely removed by ultrasonic agitation during cleaning.
-• Organics like photoresists are removed in an O2 plasma or in H2SO4/H2O2
-solutions.
-• The “RCA clean” is used to remove metals and any remaining organics.
-• Metal cleaning can be understood in terms of the following chemistry.
-• To remove metal atoms from the surface of a Si wafer, they need to be converted
-into ions that are soluble in the cleaning solution.
-• This process involves oxidizing the metal atoms.
-• Oxidation is defined as a process that removes electrons from an atom, while
-reduction is the opposite process in which an atom gains electrons.
-
-10
-Oxidation-reduction reactions
-Stronger oxidants have more negative oxidation potential.
-H2O2/H2O reaction will dominate Fe3+/Fe reaction because of stronger oxidation potential.
-Then, H2O2 takes electrons from the metal atoms, creating ions.
-General rule is, the lowest reaction in the table dominates, going to the left and driving all
-reactions above it to the right.
-• Fundamentally the RCA clean works by using H
-2
-O
-2
-as a strong oxidant.
+Wafer preparation
+ After crystal pulling, the grown crystal is shaped and cut into wafers
+which are then polished on one side.
+ The details of these processes are described in the text.
