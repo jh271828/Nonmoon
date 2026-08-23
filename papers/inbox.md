@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-08-17"
-updated: 2026-08-17
+title: "논문 인박스 — 2026-08-24"
+updated: 2026-08-24
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-08-17
+# 📬 논문 인박스 — 2026-08-24
 
 > 새 논문 **5편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,28 +16,28 @@ kind: papers
 
 ## Semiconductor
 
-### 🆕 [Dynamic Functional Synchronization Profiles in Autism Differ by Spatial Scale and Along Hierarchical Cortical Gradients.](https://doi.org/10.1016/j.bpsgos.2026.100787)
-<sub>2026-09-01 · Benedikt P Fuhr, Yonatan Sanz Perl, Ines Severino 외 · PubMed</sub>
+### 🆕 [Scaling Analysis of LLM Hardware Infrastructure through Uniform Estimates](https://doi.org/10.55041/ijcope.v2i8.175)
+<sub>2026-08-21 · VA Sharma · International Journal of Creative and Open Research in Engineering and Management · 🚧 Diamond structure · Crystal structure</sub>
 
-> Background: Prevailing theories propose that autism is characterized by local cortical overconnectivity and long-range underconnectivity, but empirical evidence remains mixed. Methods: = 1009) to examine how functional synchronization profiles dynamically change over time and across the cortex over different spatial scales. Results: Autistic individuals showed increased short-range and reduced lon
+> As a methodological illustration we indicate how the same asymptotic and summation techniques supply analytic tools for the derivation of rigorous scaling laws that appear in performance models of GPU clusters, data-centre resource allocation, and the hardware infrastructure supply chains that underpin the training of large language models (LLMs). In this expanded version we develop these links fu
 
-### 🆕 [An ecosyndemic framework for understanding obesity: Spatial clustering of health, environmental and socioeconomic disadvantage in the Netherlands](https://doi.org/10.1371/journal.pone.0354964)
-<sub>2026-08-14 · Mirthe Muilwijk, Yvonne T. van der Schouw, Jessica C. Kiefte-de Jong 외 · PLoS ONE</sub>
+### 🆕 [Cortical Tracking of Speech Across Rhythm Classes in English‐, French‐, and Japanese‐Learning 4‐ and 8‐Month‐Old Infants](https://doi.org/10.1111/desc.70271)
+<sub>2026-08-20 · Varghese Peter, Marina Kalashnikova, Sandrien van Ommen 외 · Developmental Science · 🚧 Diamond structure · Crystal structure</sub>
 
-> INTRODUCTION: Obesity and related health conditions are unevenly distributed across neighborhoods, often co-occuring with multiple health challenges and socioeconomic disadvantages. Using an ecosyndemic framework, which integrates ecological and social dimensions that contribute to the clustering of health problems, this study examines how adverse obesity-related health outcomes spatially cluster 
+> It has been proposed that the world's languages fall into three rhythmic classes according to the units that determine their rhythmic structure: stress-based (e.g., English), syllable-based (e.g., French), and mora-based (e.g., Japanese). These rhythmic differences modulate language-specific processing in adults and young infants. It has also been proposed that the syllable is the default rhythmic
 
-### 🆕 [Multimodal characterization of cortical hyperexcitability as a driver of cognitive decline in neurocognitive disorders: study protocol for the LENDÜLET Neurocognitive Research Project](https://doi.org/10.3389/fnagi.2026.1809381)
-<sub>2026-08-14 · András Attila Horváth · Frontiers in Aging Neuroscience</sub>
+### 🆕 [The AI Industry: Architecture, Chokepoints, and Deflation (v2.0)](https://doi.org/10.5281/zenodo.22015724)
+<sub>2026-08-19 · N Milton · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Diamond structure · Crystal structure</sub>
 
-> Introduction Cognitive impairment is a major source of disability in neurodegenerative conditions, and it is also highly prevalent in autism spectrum disorder and attention-deficit/hyperactivity disorder. Across these conditions, subclinical epileptiform activity and resting-state functional hyperactivity have been repeatedly described, suggesting a shared state of cortical hyperexcitability. The 
+> AI disclosure: the research is the author's; this text was drafted with AI assistance and reviewed by the author. The models, and the conflicts they create, are named in the Conflict of interest and scope section. An industry teardown of the artificial intelligence infrastructure buildout, upgrading the qualitative PESTLE scan of v1.0 to a physical chokepoint map, a motivated-claim deflation regis
 
-### ✅ [Multibody dynamics-based musculoskeletal modeling for gait analysis: a systematic review](https://doi.org/10.1186/s12984-024-01458-y)
-<sub>2024-10-05 · Muhammad Abdullah, Abdul Aziz Hulleck, Rateb Katmah 외 · Journal of NeuroEngineering and Rehabilitation</sub>
+### ✅ [White Matter Abnormalities and Cognition in Aging and Alzheimer Disease](https://doi.org/10.1001/jamaneurol.2025.1601)
+<sub>2025-06-09 · Christopher Peter, Aditi Sathe, Niranjana Shashikumar 외 · JAMA Neurology · 🚧 Diamond structure · Crystal structure</sub>
 
-> Beyond qualitative assessment, gait analysis involves the quantitative evaluation of various parameters such as joint kinematics, spatiotemporal metrics, external forces, and muscle activation patterns and forces. Utilizing multibody dynamics-based musculoskeletal (MSK) modeling provides a time and cost-effective non-invasive tool for the prediction of internal joint and muscle forces. Recent adva
+> Importance There has yet to be a large-scale study quantifying the association between white matter microstructure and cognitive performance and decline in aging and Alzheimer disease (AD). Objective To investigate the associations between tract-specific white matter microstructure and cognitive performance and decline in aging and AD-related cognitive impairment. Design, Setting, and Participants
 
-### ✅ [A Novel CNN-Based Framework for Alzheimer’s Disease Detection Using EEG Spectrogram Representations](https://doi.org/10.3390/jpm15010027)
-<sub>2025-01-14 · Kostas Stefanou, Katerina D. Tzimourta, Christos Bellos 외 · Journal of Personalized Medicine</sub>
+### ✅ [Therapeutic potential of mesenchymal stem cell‐derived extracellular vesicles: A focus on inflammatory bowel disease](https://doi.org/10.1002/ctm2.70075)
+<sub>2024-11-01 · L Clua-Ferré, R Suau, Irene Vañó‐Segarra 외 · Clinical and Translational Medicine</sub>
 
-> Background: Alzheimer’s disease (AD) is a progressive neurodegenerative disorder that poses critical challenges in global healthcare due to its increasing prevalence and severity. Diagnosing AD and other dementias, such as frontotemporal dementia (FTD), is slow and resource-intensive, underscoring the need for automated approaches. Methods: To address this gap, this study proposes a novel deep lea
+> BACKGROUND: Mesenchymal stem cell-derived extracellular vesicles (MSC-EVs) have emerged as key regulators of intercellular communication, orchestrating essential biological processes by delivering bioactive cargoes to target cells. Available evidence suggests that MSC-EVs can mimic the functions of their parental cells, exhibiting immunomodulatory, pro-regenerative, anti-apoptotic, and antifibroti
 
