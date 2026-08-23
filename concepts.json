@@ -150,6 +150,89 @@
    "prereq": [],
    "sources": [],
    "note": ""
+  },
+  {
+   "id": "planes-and-directions-miller-indices",
+   "label": "Planes and directions (Miller indices)",
+   "domain": "Semiconductor Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "crystal-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "crystal-structure",
+   "label": "Crystal structure",
+   "domain": "Semiconductor Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "diamond-structure",
+   "label": "Diamond structure",
+   "domain": "Semiconductor Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "crystal-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "zincblende-structure",
+   "label": "Zincblende structure",
+   "domain": "Semiconductor Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "diamond-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "wafer-orientation-selection",
+   "label": "Wafer orientation selection",
+   "domain": "Semiconductor Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "planes-and-directions-miller-indices",
+    "diamond-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "defects-in-crystals",
+   "label": "Defects in crystals",
+   "domain": "Semiconductor Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "crystal-structure"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "czochralski-crystal-growth",
+   "label": "Czochralski crystal growth",
+   "domain": "Semiconductor Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "crystal-structure"
+   ],
+   "sources": [],
+   "note": ""
   }
  ],
  "drills": [
