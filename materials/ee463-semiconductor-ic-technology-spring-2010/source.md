@@ -3,9 +3,9 @@ title: "EE463 Semiconductor IC Technology  Spring, 2010"
 created: 2026-08-23
 updated: 2026-08-23
 tags: [material, source]
-source: "원문 텍스트 (그대로 보존) → Issue #63"
+source: "원문 텍스트 (그대로 보존) → Issue #64"
 kind: material
-source_issue: 63
+source_issue: 64
 ---
 
 # EE463 Semiconductor IC Technology  Spring, 2010

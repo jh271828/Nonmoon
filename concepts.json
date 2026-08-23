@@ -152,8 +152,8 @@
    "note": ""
   },
   {
-   "id": "wafer-cleaning-modeling",
-   "label": "Wafer cleaning modeling",
+   "id": "clean-room-classification-class-x",
+   "label": "Clean room classification (Class X)",
    "domain": "Semiconductor Manufacturing",
    "state": "미학습",
    "importance": "M",
@@ -174,9 +174,9 @@
    "note": ""
   },
   {
-   "id": "clean-room-classification-class-x",
-   "label": "Clean room classification (Class X)",
-   "domain": "Cleanroom Technology",
+   "id": "rca-clean",
+   "label": "RCA clean",
+   "domain": "Semiconductor Manufacturing",
    "state": "미학습",
    "importance": "M",
    "prereq": [
@@ -186,24 +186,14 @@
    "note": ""
   },
   {
-   "id": "rca-clean",
-   "label": "RCA clean",
-   "domain": "Semiconductor Chemistry",
+   "id": "metal-contamination-removal-chemistry",
+   "label": "Metal contamination removal chemistry",
+   "domain": "Semiconductor Manufacturing",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "wafer-cleaning-modeling"
+    "rca-clean"
    ],
-   "sources": [],
-   "note": ""
-  },
-  {
-   "id": "device-degradation-by-contaminants",
-   "label": "Device degradation by contaminants",
-   "domain": "Semiconductor Devices",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [],
    "sources": [],
    "note": ""
   }

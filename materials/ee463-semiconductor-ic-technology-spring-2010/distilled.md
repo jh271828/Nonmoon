@@ -3,9 +3,9 @@ title: "EE463 Semiconductor IC Technology  Spring, 2010"
 created: 2026-08-23
 updated: 2026-08-23
 tags: [material, distilled]
-source: "자료 증류 → Issue #63"
+source: "자료 증류 → Issue #64"
 kind: material
-source_issue: 63
+source_issue: 64
 ---
 
 # EE463 Semiconductor IC Technology  Spring, 2010
@@ -14,52 +14,47 @@ source_issue: 63
 - 저장될 곳: `materials/ee463-semiconductor-ic-technology-spring-2010/`
 ## 요약
 
-- Three-tiered approach to controlling unwanted impurities
-- Impact of contaminants on MOS Vth and DRAM refresh time
-- Level 1 Contamination Reduction: Clean room classification and environment control
-- Level 2 Contamination Reduction: Wafer cleaning techniques and RCA clean chemistry
+- Three-tiered approach to impurity control
+- Impact of contaminants on MOS devices
+- Level 1 Contamination Reduction: Clean room standards and air filtration
+- Level 2 Contamination Reduction: Wafer cleaning chemistry and RCA clean
 
 ## 개념 지도
 
 ### Semiconductor Manufacturing
 - Three-tiered impurity control
-- Wafer cleaning modeling ← Three-tiered impurity control
-
-### Semiconductor Devices
-- Device degradation by contaminants
-
-### Cleanroom Technology
 - Clean room classification (Class X) ← Three-tiered impurity control
-
-### Semiconductor Chemistry
-- RCA clean ← Wafer cleaning modeling
+- RCA clean ← Three-tiered impurity control
+- Metal contamination removal chemistry ← RCA clean
 
 ## 빈칸 문제
 
 1. What are the three tiers of the approach modern IC factories employ to control unwanted impurities?
    - 답: Clean rooms, Wafer cleaning, and Human control
-2. What does 'Class X' mean in clean room air quality measurement?
-   - 답: It means there are less than X total particles greater than 0.5μm in size in each cubic foot of air.
-3. What is the typical air quality class of an office building versus a state-of-the-art clean room?
-   - 답: An office building is about class 100,000, while a state-of-the-art clean room is class 1.
-4. What are the four main types of contaminants that may consist on wafer surfaces?
-   - 답: Particles, organic films (photoresist), heavy metals, and alkali ions.
-5. In MOS devices, what can cause a 0.1 volt Vth shift if the oxide thickness (tox) is 10 nm?
-   - 답: A mobile charge density (QM) of 6.5 x 10^11 cm^-2.
-6. Which deep level impurities are normally associated with traps that degrade MOS DRAM refresh time?
-   - 답: Au, Cu, Fe, etc.
-7. How are particles largely removed from wafer surfaces during cleaning?
-   - 답: By ultrasonic agitation.
-8. What two methods are specified for removing organics like photoresists?
-   - 답: O2 plasma or H2SO4/H2O2 solutions.
-9. What standard process is used to remove metals and remaining organics from wafer surfaces?
+2. What do the acronyms LLS and GOI stand for in the SIA Roadmap?
+   - 답: LLS stands for Localized Light Scattering, and GOI stands for Gate oxide Integrity
+3. What are the four main types of contaminants that may be found on a wafer?
+   - 답: Particles, organic films (photoresist), heavy metals, and alkali ions
+4. A shift in MOS threshold voltage (Vth) is typically caused by which type of contamination?
+   - 답: Alkali ions (charges)
+5. Deep level impurities like Au, Cu, and Fe degrade the refresh time of MOS DRAM by reducing what parameter?
+   - 답: Generation lifetime
+6. What does 'Class X' mean in clean room air quality measurement?
+   - 답: It means there are less than X total particles greater than 0.5μm in size per cubic foot of air
+7. What is the typical air quality class of a state-of-the-art clean room compared to a typical office building?
+   - 답: Class 1 for a state-of-the-art clean room, compared to Class 100,000 for an office building
+8. What type of filters are used to clean the air in semiconductor factories?
+   - 답: HEPA (High Efficiency Particulate Air) filters
+9. By what physical mechanism are particles largely removed from wafer surfaces during cleaning?
+   - 답: Ultrasonic agitation
+10. What two chemical environments are specified for removing organic films like photoresists?
+   - 답: O2 plasma or H2SO4/H2O2 solutions
+11. What is the standard chemical process used to remove metals and remaining organics from wafer surfaces?
    - 답: RCA clean
-10. To remove metal atoms from the surface of a Si wafer, they must be converted into soluble ions through which chemical process?
-   - 답: Oxidation (removing electrons from the metal atoms)
-11. What do the acronyms LLS and GOI stand for in the SIA Roadmap?
-   - 답: LLS stands for Localized Light Scattering, and GOI stands for Gate Oxide Integrity.
-12. What four methods are listed to clean the factory environment in Level 1 contamination reduction?
-   - 답: HEPA filters and recirculation, bunny suits, filtration of chemicals and gases, and manufacturing protocols.
+12. To remove metal atoms from the surface of a Si wafer, they must be converted into what state to become soluble?
+   - 답: Ions
+13. What chemical process is defined as removing electrons from an atom to make metal contaminants soluble?
+   - 답: Oxidation
 
 ## 원문 목차
 
