@@ -30,26 +30,27 @@ kind: status
 
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.
-1. Contact는 device terminal/silicide와 Metal 1 사이의 vertical connection이라는 표현을 다음 복습에서 재확인
-2. Well formation을 channel 자체 형성보다 NMOS/PMOS가 형성될 body region 형성으로 표현하는 정확성 보완
-3. CMOS Process Flow에서 Metal의 역할은 아직 스스로 설명하지 않음
-4. implant species 선택을 단순히 charge가 아니라 확산성·질량·junction 형성 등 물리적 성질과 연결하는 설명은 다음 학습에서 검증 필요
-5. 슬라이드 11에서 기존 oxide를 그대로 쓰지 않고 새 oxide를 형성하는 이유는 다음 학습에서 다시 검증 필요
+1. dangling bond가 직접 interface charge를 만든다고 표현한 부분은 보완 필요: interface state 형성 및 carrier trap/release와의 연결.
+2. pull rate, melt temperature, rotation rate 각각의 구체적인 효과는 처음에는 설명하지 못함.
+3. Contact는 device terminal/silicide와 Metal 1 사이의 vertical connection이라는 표현을 다음 복습에서 재확인
+4. Well formation을 channel 자체 형성보다 NMOS/PMOS가 형성될 body region 형성으로 표현하는 정확성 보완
+5. CMOS Process Flow에서 Metal의 역할은 아직 스스로 설명하지 않음
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 다음 세션에서 다시 물을 것. 러너가 채워 나간다.
-1. Contact와 Metal은 각각 어떤 방향/범위의 electrical connection을 담당하는가?
-2. Well formation은 channel 자체를 만드는 것인가, NMOS/PMOS가 형성될 body region을 만드는 것인가?
+1. 왜 MOS device에는 (111)보다 (100) Si wafer가 선호되는가? channel 위치와 interface state까지 연결해 설명하라.
+2. CZ에서 seed orientation과 pull rate, melt temperature, rotation rate의 역할은 어떻게 다른가?
+3. CZ growth 이후 실제 wafer가 되기까지의 순서를 설명하라.
 
 ## 최근 궤적 (러너가 갱신)
 
-- 2026-08-18 · EE463 Introduction과 Scaling → [daily/2026-08-18-ee463-introduction-scaling.md](daily/2026-08-18-ee463-introduction-scaling.md)
 - 2026-08-19 · EE463 Introduction 진행상황 반영 → [daily/2026-08-19-ee463-introduction.md](daily/2026-08-19-ee463-introduction.md)
 - 2026-08-19 · EE463 Introduction 진행상황 갱신 → [daily/2026-08-19-ee463-introduction-2.md](daily/2026-08-19-ee463-introduction-2.md)
 - 2026-08-19 · EE463 Process Technology Issues → [daily/2026-08-19-ee463-process-technology-issues.md](daily/2026-08-19-ee463-process-technology-issues.md)
 - 2026-08-20 · EE463 Introduction — Atomic Scale Era와 Scaling 한계 → [daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md](daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md)
 - 2026-08-23 · CMOS 공정 흐름 — 이전 두 세션 통합 → [daily/2026-08-23-cmos.md](daily/2026-08-23-cmos.md)
 - 2026-08-23 · CMOS Process Flow — 전체 흐름 검증 → [daily/2026-08-23-cmos-2.md](daily/2026-08-23-cmos-2.md)
+- 2026-08-23 · EE463 Wafer → [daily/2026-08-23-cmos-3.md](daily/2026-08-23-cmos-3.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
