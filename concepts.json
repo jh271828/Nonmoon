@@ -152,21 +152,21 @@
    "note": ""
   },
   {
-   "id": "planes-and-directions-miller-indices",
-   "label": "Planes and directions (Miller indices)",
-   "domain": "Semiconductor Technology",
+   "id": "wafer-cleaning-modeling",
+   "label": "Wafer cleaning modeling",
+   "domain": "Semiconductor Manufacturing",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "crystal-structure"
+    "three-tiered-impurity-control"
    ],
    "sources": [],
    "note": ""
   },
   {
-   "id": "crystal-structure",
-   "label": "Crystal structure",
-   "domain": "Semiconductor Technology",
+   "id": "three-tiered-impurity-control",
+   "label": "Three-tiered impurity control",
+   "domain": "Semiconductor Manufacturing",
    "state": "미학습",
    "importance": "M",
    "prereq": [],
@@ -174,63 +174,36 @@
    "note": ""
   },
   {
-   "id": "diamond-structure",
-   "label": "Diamond structure",
-   "domain": "Semiconductor Technology",
+   "id": "clean-room-classification-class-x",
+   "label": "Clean room classification (Class X)",
+   "domain": "Cleanroom Technology",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "crystal-structure"
+    "three-tiered-impurity-control"
    ],
    "sources": [],
    "note": ""
   },
   {
-   "id": "zincblende-structure",
-   "label": "Zincblende structure",
-   "domain": "Semiconductor Technology",
+   "id": "rca-clean",
+   "label": "RCA clean",
+   "domain": "Semiconductor Chemistry",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "diamond-structure"
+    "wafer-cleaning-modeling"
    ],
    "sources": [],
    "note": ""
   },
   {
-   "id": "wafer-orientation-selection",
-   "label": "Wafer orientation selection",
-   "domain": "Semiconductor Technology",
+   "id": "device-degradation-by-contaminants",
+   "label": "Device degradation by contaminants",
+   "domain": "Semiconductor Devices",
    "state": "미학습",
    "importance": "M",
-   "prereq": [
-    "planes-and-directions-miller-indices",
-    "diamond-structure"
-   ],
-   "sources": [],
-   "note": ""
-  },
-  {
-   "id": "defects-in-crystals",
-   "label": "Defects in crystals",
-   "domain": "Semiconductor Technology",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [
-    "crystal-structure"
-   ],
-   "sources": [],
-   "note": ""
-  },
-  {
-   "id": "czochralski-crystal-growth",
-   "label": "Czochralski crystal growth",
-   "domain": "Semiconductor Technology",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [
-    "crystal-structure"
-   ],
+   "prereq": [],
    "sources": [],
    "note": ""
   }
