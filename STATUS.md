@@ -30,28 +30,27 @@ kind: status
 
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.
-1. Class X 정의에서 처음에는 0.5 μm보다 작은 입자라고 반대로 기억했음. 최종 정리에서는 0.5 μm보다 큰 입자로 수정함.
-2. Organic contamination 제거를 단순히 산염기 반응 또는 산화환원 반응으로 표현하는 경향이 있음. 핵심은 강한 산화 조건에서 유기물을 분해/제거하는 것.
-3. RCA clean을 표준환원전위표로 설명할 때 렉노의 oxidation potential 표기와 부호 방향이 혼동될 수 있음.
-4. dangling bond가 직접 interface charge를 만든다고 표현한 부분은 보완 필요: interface state 형성 및 carrier trap/release와의 연결.
-5. pull rate, melt temperature, rotation rate 각각의 구체적인 효과는 처음에는 설명하지 못함.
+1. Organic contamination 제거의 핵심은 산-염기 반응보다는 강한 산화 조건에서 유기물을 분해하는 것.
+2. RCA clean 전위표는 렉노가 oxidation potential을 사용하므로 일반적인 reduction potential과 부호 방향을 혼동하지 않기.
+3. Class X 정의에서 처음에는 0.5 μm보다 작은 입자라고 반대로 기억했음. 최종 정리에서는 0.5 μm보다 큰 입자로 수정함.
+4. Organic contamination 제거를 단순히 산염기 반응 또는 산화환원 반응으로 표현하는 경향이 있음. 핵심은 강한 산화 조건에서 유기물을 분해/제거하는 것.
+5. RCA clean을 표준환원전위표로 설명할 때 렉노의 oxidation potential 표기와 부호 방향이 혼동될 수 있음.
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 다음 세션에서 다시 물을 것. 러너가 채워 나간다.
-1. Class X의 정확한 정의는 무엇이며 숫자가 작을수록 왜 더 깨끗한가?
-2. Particle, organic, metal contamination은 각각 어떤 방식으로 제거하며 왜 그 방식이 적합한가?
-3. RCA clean에서 H2O2가 metal contamination을 제거하는 과정을 전자 이동과 ionization까지 연결해 설명하라.
-4. Clean room, wafer cleaning, human control은 각각 contamination control에서 어떤 역할을 하는가?
+1. Particle, organic, metal contamination은 각각 어떻게 제거하는가?
+2. RCA clean에서 H2O2가 metal을 제거하는 과정을 electron transfer와 ionization까지 연결해 설명하라.
+3. Clean room, wafer cleaning, human control의 역할 차이는 무엇인가?
 
 ## 최근 궤적 (러너가 갱신)
 
-- 2026-08-19 · EE463 Introduction 진행상황 갱신 → [daily/2026-08-19-ee463-introduction-2.md](daily/2026-08-19-ee463-introduction-2.md)
 - 2026-08-19 · EE463 Process Technology Issues → [daily/2026-08-19-ee463-process-technology-issues.md](daily/2026-08-19-ee463-process-technology-issues.md)
 - 2026-08-20 · EE463 Introduction — Atomic Scale Era와 Scaling 한계 → [daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md](daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md)
 - 2026-08-23 · CMOS 공정 흐름 — 이전 두 세션 통합 → [daily/2026-08-23-cmos.md](daily/2026-08-23-cmos.md)
 - 2026-08-23 · CMOS Process Flow — 전체 흐름 검증 → [daily/2026-08-23-cmos-2.md](daily/2026-08-23-cmos-2.md)
 - 2026-08-23 · EE463 Wafer → [daily/2026-08-23-cmos-3.md](daily/2026-08-23-cmos-3.md)
 - 2026-08-29 · EE463 Cleaning — contamination control과 wafer cleaning → [daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning.md](daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning.md)
+- 2026-08-29 · EE463 Cleaning contamination control → [daily/2026-08-29-ee463-cleaning-contamination-control.md](daily/2026-08-29-ee463-cleaning-contamination-control.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
