@@ -128,6 +128,28 @@
    "verified": "2026-08-29"
   },
   {
+   "id": "rca-clean에서-h2o2의-metal-contamination-제거-원리",
+   "label": "RCA clean에서 H2O2의 metal contamination 제거 원리",
+   "domain": "미분류",
+   "state": "설명가능",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": "2026-08-29",
+   "verified": "2026-08-29"
+  },
+  {
+   "id": "반도체-공정의-three-tier-contamination-control",
+   "label": "반도체 공정의 three-tier contamination control",
+   "domain": "미분류",
+   "state": "설명가능",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": "2026-08-29",
+   "verified": "2026-08-29"
+  },
+  {
    "id": "칩-패키지의-전체-신호-경로",
    "label": "칩 패키지의 전체 신호 경로",
    "domain": "반도체 패키징",
