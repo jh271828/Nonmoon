@@ -26,6 +26,8 @@ kind: mastery
 | Process Control과 Stochastic Effects | can_explain | 스케일링이 심화될수록, 오차가 전체 오차율에 크게 반영되기 때문에. 마찬가지로 무작위성에 의한 오차가, 전체 오차율에 더욱 큰 비중을 차지하기 때문에? process control은 가능, stochastic은 불가능 |  |  |  |
 | Scaling과 process innovation 및 architecture evolution | can_explain | 새로운 공정,새로운 구조, 새로운 재료, 새로운 기술을 적용하여 다양한 방식으로 크기를 줄여왔다라고 말해야 된다 |  |  |  |
 | FinFET 대비 GAA의 electrostatic control | can_explain | 3면에서 4면으로 바뀌면서, gate가 channel에 대한 electrostatic control을 강력하게 할 수 있고, 따라서 스케일링을 더욱 하더라도 원치않는 사이드이펙트를 방지할 수 있기때문에 |  |  |  |
+| Three-tiered contamination control | 설명가능 |  | 2026-08-29 | [[daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning]] | 최소화는 세가지 접근으로 제시된다. 1. clean room 조성, 2. wafer cleaning, 3. Human control |
+| Metal contamination removal by oxidation in RCA clean | 설명가능 |  | 2026-08-29 | [[daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning]] | metal contamination 제거는 metal을 이온화 시킨후, 수용액에 씻겨 보내는 형태이다. 표준환원전위표에서 보다싶히, H2O2는 굉장한 Oxidant이다. 따라서 H2O2로 대부분의 metal들을 oxidation시켜 이온으로 만들 수 있다. |
 <!-- MASTERY-TABLE:END -->
 
 ## 읽는 법

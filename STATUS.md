@@ -1,6 +1,6 @@
 ---
 title: "학습 상태 — 러너 진입점"
-updated: 2026-08-23
+updated: 2026-08-29
 kind: status
 ---
 
@@ -30,27 +30,28 @@ kind: status
 
 ## 지금 약한 것 (top 5 — 세션은 여기서 시작)
 > 전체는 [[mastery.md]]. 아직 `설명가능`이 아닌 것부터.
-1. dangling bond가 직접 interface charge를 만든다고 표현한 부분은 보완 필요: interface state 형성 및 carrier trap/release와의 연결.
-2. pull rate, melt temperature, rotation rate 각각의 구체적인 효과는 처음에는 설명하지 못함.
-3. Contact는 device terminal/silicide와 Metal 1 사이의 vertical connection이라는 표현을 다음 복습에서 재확인
-4. Well formation을 channel 자체 형성보다 NMOS/PMOS가 형성될 body region 형성으로 표현하는 정확성 보완
-5. CMOS Process Flow에서 Metal의 역할은 아직 스스로 설명하지 않음
+1. Class X 정의에서 처음에는 0.5 μm보다 작은 입자라고 반대로 기억했음. 최종 정리에서는 0.5 μm보다 큰 입자로 수정함.
+2. Organic contamination 제거를 단순히 산염기 반응 또는 산화환원 반응으로 표현하는 경향이 있음. 핵심은 강한 산화 조건에서 유기물을 분해/제거하는 것.
+3. RCA clean을 표준환원전위표로 설명할 때 렉노의 oxidation potential 표기와 부호 방향이 혼동될 수 있음.
+4. dangling bond가 직접 interface charge를 만든다고 표현한 부분은 보완 필요: interface state 형성 및 carrier trap/release와의 연결.
+5. pull rate, melt temperature, rotation rate 각각의 구체적인 효과는 처음에는 설명하지 못함.
 
 ## 다음 복습 질문 (top 5 — 세션 시작 시 1~2개 예측용)
 > 다음 세션에서 다시 물을 것. 러너가 채워 나간다.
-1. 왜 MOS device에는 (111)보다 (100) Si wafer가 선호되는가? channel 위치와 interface state까지 연결해 설명하라.
-2. CZ에서 seed orientation과 pull rate, melt temperature, rotation rate의 역할은 어떻게 다른가?
-3. CZ growth 이후 실제 wafer가 되기까지의 순서를 설명하라.
+1. Class X의 정확한 정의는 무엇이며 숫자가 작을수록 왜 더 깨끗한가?
+2. Particle, organic, metal contamination은 각각 어떤 방식으로 제거하며 왜 그 방식이 적합한가?
+3. RCA clean에서 H2O2가 metal contamination을 제거하는 과정을 전자 이동과 ionization까지 연결해 설명하라.
+4. Clean room, wafer cleaning, human control은 각각 contamination control에서 어떤 역할을 하는가?
 
 ## 최근 궤적 (러너가 갱신)
 
-- 2026-08-19 · EE463 Introduction 진행상황 반영 → [daily/2026-08-19-ee463-introduction.md](daily/2026-08-19-ee463-introduction.md)
 - 2026-08-19 · EE463 Introduction 진행상황 갱신 → [daily/2026-08-19-ee463-introduction-2.md](daily/2026-08-19-ee463-introduction-2.md)
 - 2026-08-19 · EE463 Process Technology Issues → [daily/2026-08-19-ee463-process-technology-issues.md](daily/2026-08-19-ee463-process-technology-issues.md)
 - 2026-08-20 · EE463 Introduction — Atomic Scale Era와 Scaling 한계 → [daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md](daily/2026-08-20-ee463-introduction-atomic-scale-era-scaling-2.md)
 - 2026-08-23 · CMOS 공정 흐름 — 이전 두 세션 통합 → [daily/2026-08-23-cmos.md](daily/2026-08-23-cmos.md)
 - 2026-08-23 · CMOS Process Flow — 전체 흐름 검증 → [daily/2026-08-23-cmos-2.md](daily/2026-08-23-cmos-2.md)
 - 2026-08-23 · EE463 Wafer → [daily/2026-08-23-cmos-3.md](daily/2026-08-23-cmos-3.md)
+- 2026-08-29 · EE463 Cleaning — contamination control과 wafer cleaning → [daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning.md](daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**

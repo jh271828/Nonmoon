@@ -117,6 +117,17 @@
    "note": ""
   },
   {
+   "id": "metal-contamination-removal-by-oxidation-in-rca-clean",
+   "label": "Metal contamination removal by oxidation in RCA clean",
+   "domain": "미분류",
+   "state": "설명가능",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": "2026-08-29",
+   "verified": "2026-08-29"
+  },
+  {
    "id": "칩-패키지의-전체-신호-경로",
    "label": "칩 패키지의 전체 신호 경로",
    "domain": "반도체 패키징",
@@ -292,6 +303,18 @@
   }
  ],
  "drills": [
+  {
+   "id": "three-tiered-contamination-control",
+   "label": "Three-tiered contamination control",
+   "domain": "미분류",
+   "state": "설명가능",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": "2026-08-29",
+   "verified": "2026-08-29",
+   "why_drill": "어휘장 꼴(단어=뜻)이고 선수관계가 없음"
+  },
   {
    "id": "die-pad",
    "label": "Die Pad",
