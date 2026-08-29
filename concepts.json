@@ -152,6 +152,52 @@
    "note": ""
   },
   {
+   "id": "cleanroom-air-quality-classification",
+   "label": "Cleanroom Air Quality Classification",
+   "domain": "Cleanroom Engineering",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "three-tiered-impurity-control"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "three-tiered-impurity-control",
+   "label": "Three-tiered Impurity Control",
+   "domain": "Semiconductor Manufacturing",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "rca-clean",
+   "label": "RCA Clean",
+   "domain": "Wafer Cleaning Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "three-tiered-impurity-control"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "metal-contaminant-dissolution-chemistry",
+   "label": "Metal Contaminant Dissolution Chemistry",
+   "domain": "Wafer Cleaning Technology",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "rca-clean"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
    "id": "diamond-structure",
    "label": "Diamond structure",
    "domain": "Semiconductor Materials",
@@ -231,6 +277,16 @@
    "prereq": [
     "crystal-structure"
    ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "device-degradation-by-contaminants",
+   "label": "Device Degradation by Contaminants",
+   "domain": "Semiconductor Devices",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
    "sources": [],
    "note": ""
   }
