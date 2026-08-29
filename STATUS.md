@@ -52,7 +52,7 @@ kind: status
 - 2026-08-23 · CMOS Process Flow — 전체 흐름 검증 → [daily/2026-08-23-cmos-2.md](daily/2026-08-23-cmos-2.md)
 - 2026-08-23 · EE463 Wafer → [daily/2026-08-23-cmos-3.md](daily/2026-08-23-cmos-3.md)
 - 2026-08-29 · EE463 Cleaning contamination control → [daily/2026-08-29-ee463-cleaning-contamination-control.md](daily/2026-08-29-ee463-cleaning-contamination-control.md)
-- 2026-08-29 · EE463 Cleaning — contamination control과 wafer cleaning → [daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning-2.md](daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning-2.md)
+- 2026-08-29 · EE463 Cleaning — contamination control과 wafer cleaning → [daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning-3.md](daily/2026-08-29-ee463-cleaning-contamination-control-wafer-cleaning-3.md)
 
 ## 세션 진행 프로토콜 (러너가 따르는 대본)
 **① 목표 → ② 예측(내가 먼저 자기 말로) → ③ 설명·교정(오개념을 근거와 함께) → ④ 퀴즈/적용 → ⑤ 채점·기록.**
