@@ -10,3 +10,4 @@ kind: parking-lot
 > 별도 `[학습]` 세션의 재료가 된다. 해소되면 `- [x]`로 바뀐다.
 
 - [ ] HEPA — 6쪽
+- [ ] recirculation — 6쪽
