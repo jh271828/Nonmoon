@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-08-24"
-updated: 2026-08-24
+title: "논문 인박스 — 2026-08-31"
+updated: 2026-08-31
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-08-24
+# 📬 논문 인박스 — 2026-08-31
 
 > 새 논문 **5편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,28 +16,28 @@ kind: papers
 
 ## Semiconductor
 
-### 🆕 [Scaling Analysis of LLM Hardware Infrastructure through Uniform Estimates](https://doi.org/10.55041/ijcope.v2i8.175)
-<sub>2026-08-21 · VA Sharma · International Journal of Creative and Open Research in Engineering and Management · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [Examination of poverty trajectories and brain volume as predictors of adolescent depression](https://doi.org/10.1111/jora.70251)
+<sub>2026-08-28 · Brandon Kyle Hayes, Yiming Qian, Myles Arrington 외 · Journal of Research on Adolescence · 🚧 Diamond structure · Crystal structure</sub>
 
-> As a methodological illustration we indicate how the same asymptotic and summation techniques supply analytic tools for the derivation of rigorous scaling laws that appear in performance models of GPU clusters, data-centre resource allocation, and the hardware infrastructure supply chains that underpin the training of large language models (LLMs). In this expanded version we develop these links fu
+> Adolescence is a sensitive period during which socioeconomic conditions can shape brain development and mental health. To further clarify such pathways, the present study examined how trajectories of different poverty indices across adolescence relate to brain structure and depressive symptomatology. In a sample of 206 Mexican-origin youth, latent growth curve modeling was used to assess parent-re
 
-### 🆕 [Cortical Tracking of Speech Across Rhythm Classes in English‐, French‐, and Japanese‐Learning 4‐ and 8‐Month‐Old Infants](https://doi.org/10.1111/desc.70271)
-<sub>2026-08-20 · Varghese Peter, Marina Kalashnikova, Sandrien van Ommen 외 · Developmental Science · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [Task similarity increases difficulty in maintaining but not in switching between tasks.](https://doi.org/10.1037/xge0001978)
+<sub>2026-08-27 · Marlene Poncet · Journal of Experimental Psychology General · 🚧 Three-tiered Impurity Control</sub>
 
-> It has been proposed that the world's languages fall into three rhythmic classes according to the units that determine their rhythmic structure: stress-based (e.g., English), syllable-based (e.g., French), and mora-based (e.g., Japanese). These rhythmic differences modulate language-specific processing in adults and young infants. It has also been proposed that the syllable is the default rhythmic
+> Switching tasks and adapting to new situations by appropriately allocating mental resources is crucial for interacting with the world around us.This ability requires cognitive control and includes several operations such as maintaining and modifying task goals, allocating attention to the relevant stimulus, and selecting the appropriate motor command.Surprisingly, although we know that switching b
 
-### 🆕 [The AI Industry: Architecture, Chokepoints, and Deflation (v2.0)](https://doi.org/10.5281/zenodo.22015724)
-<sub>2026-08-19 · N Milton · Zenodo (CERN European Organization for Nuclear Research) · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [ACPC-MAP: a protocol for manually aligning structural T1-weighted magnetic resonance images to the anterior commissure – posterior commissure plane according to clinical standards](https://doi.org/10.1007/s00429-026-03171-z)
+<sub>2026-08-29 · Ashok K. Selvaraj, Ronald Bartels, Christian Beckmann 외 · Brain Structure and Function</sub>
 
-> AI disclosure: the research is the author's; this text was drafted with AI assistance and reviewed by the author. The models, and the conflicts they create, are named in the Conflict of interest and scope section. An industry teardown of the artificial intelligence infrastructure buildout, upgrading the qualitative PESTLE scan of v1.0 to a physical chokepoint map, a motivated-claim deflation regis
+> Abstract Realigning structural MR images to stereotactic AC-PC space is a standard procedure that enhances anatomical consistency both within and across neuroimaging studies, allowing for precise spatial localization and reliable cross-subject comparisons in both clinical and research contexts. However, different versions of AC-PC spaces, stemming from varying definitions of the AC-PC axis as outl
 
-### ✅ [White Matter Abnormalities and Cognition in Aging and Alzheimer Disease](https://doi.org/10.1001/jamaneurol.2025.1601)
-<sub>2025-06-09 · Christopher Peter, Aditi Sathe, Niranjana Shashikumar 외 · JAMA Neurology · 🚧 Diamond structure · Crystal structure</sub>
+### ✅ [Evidence for widespread human exposure to food contact chemicals](https://doi.org/10.1038/s41370-024-00718-2)
+<sub>2024-09-17 · Birgit Geueke, Lindsey V. Parkinson, Ksenia J. Groh 외 · Journal of Exposure Science & Environmental Epidemiology</sub>
 
-> Importance There has yet to be a large-scale study quantifying the association between white matter microstructure and cognitive performance and decline in aging and Alzheimer disease (AD). Objective To investigate the associations between tract-specific white matter microstructure and cognitive performance and decline in aging and AD-related cognitive impairment. Design, Setting, and Participants
+> BACKGROUND: Over 1800 food contact chemicals (FCCs) are known to migrate from food contact articles used to store, process, package, and serve foodstuffs. Many of these FCCs have hazard properties of concern, and still others have never been tested for toxicity. Humans are known to be exposed to FCCs via foods, but the full extent of human exposure to all FCCs is unknown. OBJECTIVE: To close this 
 
-### ✅ [Therapeutic potential of mesenchymal stem cell‐derived extracellular vesicles: A focus on inflammatory bowel disease](https://doi.org/10.1002/ctm2.70075)
-<sub>2024-11-01 · L Clua-Ferré, R Suau, Irene Vañó‐Segarra 외 · Clinical and Translational Medicine</sub>
+### ✅ [A Systematic Review of Aperiodic Neural Activity in Clinical Investigations](https://doi.org/10.1111/ejn.70255)
+<sub>2025-10-01 · Thomas Donoghue · European Journal of Neuroscience</sub>
 
-> BACKGROUND: Mesenchymal stem cell-derived extracellular vesicles (MSC-EVs) have emerged as key regulators of intercellular communication, orchestrating essential biological processes by delivering bioactive cargoes to target cells. Available evidence suggests that MSC-EVs can mimic the functions of their parental cells, exhibiting immunomodulatory, pro-regenerative, anti-apoptotic, and antifibroti
+> Aperiodic neural activity-activity with no characteristic frequency-has increasingly become a common feature of study, including in clinical work. Reports investigating aperiodic activity from patients from a broad range of clinical disorders have sought to evaluate aperiodic activity as a putative biomarker relating to diagnosis or treatment response and/or as a potential marker of underlying phy
 
