@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-09-14"
-updated: 2026-09-14
+title: "논문 인박스 — 2026-09-21"
+updated: 2026-09-21
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-09-14
+# 📬 논문 인박스 — 2026-09-21
 
 > 새 논문 **5편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,28 +16,28 @@ kind: papers
 
 ## Semiconductor
 
-### 🆕 [GPU and RISC-V acceleration for neuromorphic computing based on spiking neural networks: taxonomy, comparison, and open challenges](https://doi.org/10.1088/2634-4386/aea4eb)
-<sub>2026-09-09 · Edris Zaman Farsa, Amirhossein Ilkhani, Marc Reichenbach 외 · Neuromorphic Computing and Engineering · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [Age-group differences in diffusion MRI characteristics of cortico-cerebellar tracts and their association with bimanual performance](https://doi.org/10.3389/fnagi.2026.1933331)
+<sub>2026-09-17 · Maud Beeckmans, Shanti Van Malderen, Sara Magalhães Ferreira 외 · Frontiers in Aging Neuroscience · 🚧 Diamond structure · Crystal structure</sub>
 
-> Abstract Neuromorphic computing has emerged as an event-driven, energy-efficient paradigm for brain-like information processing. Unlike conventional architectures, it unifies memory and computation to mitigate the von Neumann bottleneck, and it typically relies on spiking neural networks (SNNs) as its computational model. As SNNs grow in structure and scale, their hardware acceleration becomes inc
+> Introduction Aging is associated with alterations in white matter structure and decline in bimanual performance. These parallel changes may be interrelated, as previous studies have linked cerebral white matter properties to both motor and cognitive function. The cerebellum plays a central role in complex motor coordination and higher-order processes, yet age-related differences in cortico-cerebel
 
-### 🆕 [Effectiveness of Pesticide Safety Training on Farmers’ Knowledge and Practices in Vegetable Production: Evidence from Small-Scale Farmers in Kasena Nankana Municipality, Upper East Region of Ghana](https://doi.org/10.19044/esipreprint.9.2026.p26)
-<sub>2026-09-09 · Afishata Mohammed Abujaja, Jacob Pwoawuvi · European Scientific Journal ESJ · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [The Tri-Polar Compute Manifold. Regime Structure, Relative Compute, and Escape Velocity](https://doi.org/10.33774/coe-2026-4wwf9)
+<sub>2026-09-12 · Sergei Stepanov · 🚧 Diamond structure · Crystal structure</sub>
 
-> The current study examined the use of pesticides and their safety practices among smallholder vegetable farmers in the Kassena-Nankana Municipality of the Upper East Region, Ghana. A sample size of 95 vegetable farmers who engaged in dry season vegetable farming was considered. Data collection was done using interview guide and structured questionnaire, and data analysis was done using descriptive
+> How do domestic political structures constrain a state’s capacity to build and deploy frontier compute? Aggregate measures of industrial scale and defense spending do not answer the question. This article models technological state capacity as relative compute against a moving frontier. Regime coercion enters as a tax on true feedback fidelity; reported capacity is an observation, not the state. T
 
-### 🆕 [Atypical sensory traits and changes in white matter microstructures connected to the amygdala and hippocampus of the autistic brain](https://doi.org/10.1007/s00702-026-03264-3)
-<sub>2026-09-08 · Taku Kamiya, Kaie Habata, Yongjeon Cheong 외 · Journal of Neural Transmission · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [Sex differences in brain structure and function after sports-related concussion](https://doi.org/10.5282/edoc.37655)
+<sub>2026-09-17 · Paul Samuel Raffelhüschen · Elektronische Hochschulschriften der LMU München (Ludwig-Maximilians-Universität München) · 🚧 Diamond structure · Crystal structure</sub>
 
-> Autism spectrum disorder (ASD) is characterized by atypical sensory traits. The amygdala and hippocampus have been implicated in ASD, but how sensory traits relate to white matter pathways connected to these regions remains unclear. We therefore examined whether sensory traits are associated with microstructural properties of amygdala- and hippocampus-connected white matter in adults with ASD. We 
+> _(초록이 공개돼 있지 않다 — 제목·저널로 판단하거나 원문을 열어 보자.)_
 
-### ✅ [Progress in Research on Co-Packaged Optics](https://doi.org/10.3390/mi15101211)
-<sub>2024-09-29 · Wenchao Tian, Huahua Hou, Haojie Dang 외 · Micromachines</sub>
+### ✅ [Open-Source Large Language Models in Radiology: A Review and Tutorial for Practical Research and Clinical Deployment](https://doi.org/10.1148/radiol.241073)
+<sub>2025-01-01 · Cody Savage, Adway Kanhere, Vishwa S. Parekh 외 · Radiology</sub>
 
-> In the 5G era, the demand for high-bandwidth computing, transmission, and storage has led to the development of optoelectronic interconnect technology. This technology has evolved from traditional board-edge optical modules to smaller and more integrated solutions. Co-packaged optics (CPO) has evolved as a solution to meet the growing demand for data. Compared to typical optoelectronic connectivit
+> . In addition, this article compares the benefits and drawbacks of open-source and proprietary LLMs, discusses the differentiating characteristics of popular open-source LLMs, and highlights recent advancements that may affect their adoption.
 
-### ✅ [Exploring Generative Artificial Intelligence and Data Augmentation Techniques for Spectroscopy Analysis](https://doi.org/10.1021/acs.chemrev.4c00815)
-<sub>2025-06-23 · A. Flanagan, Dhairya Dalal, Frank G. Glavin 외 · Chemical Reviews</sub>
+### ✅ [RETRACTED ARTICLE: Comparative analysis of heart disease prediction using logistic regression, SVM, KNN, and random forest with cross-validation for improved accuracy](https://doi.org/10.1038/s41598-025-93675-1)
+<sub>2025-04-18 · Yagyanath Rimal, Navneet Sharma, Siddhartha Paudel 외 · Scientific Reports</sub>
 
-> Generative artificial intelligence (AI) techniques are advancing rapidly and are becoming increasingly challenging to implement. Researchers, practitioners, and enthusiasts alike now require an understanding of complex concepts far beyond the scope of simple feed-forward neural networks to implement the current state-of-the-art methods for their research interests. In contrast, while data augmenta
+> This primary research paper emphasizes cross-validation, where data samples are reshuffled in each iteration to form randomized subsets divided into n folds. This method improves model performance and achieves higher accuracy than the baseline model. The novelty lies in the data preparation process, where numerical features were imputed using the mean, categorical features were imputed using chi-s
 
