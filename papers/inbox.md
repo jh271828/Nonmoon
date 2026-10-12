@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-10-05"
-updated: 2026-10-05
+title: "논문 인박스 — 2026-10-12"
+updated: 2026-10-12
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-10-05
+# 📬 논문 인박스 — 2026-10-12
 
 > 새 논문 **5편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,28 +16,28 @@ kind: papers
 
 ## Semiconductor
 
-### 🆕 [Sleep and participation in extracurricular activities moderate associations between low SES and brain structure and functional connectivity](https://doi.org/10.1016/j.dcn.2026.101827)
-<sub>2026-09-29 · Juliette Tinch, Phoebe Thomson, Divyangana Rakesh 외 · Developmental Cognitive Neuroscience · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [A design wave method for the prediction of extreme combined wind-wave loads on floating wind turbines](https://doi.org/10.1016/j.apor.2026.105283)
+<sub>2026-10-07 · Athanasios Dermatis, Seung-Yoon Han, Sylvain Jamet 외 · Applied Ocean Research · 🚧 Diamond structure · Crystal structure</sub>
 
-> Household and neighborhood socioeconomic status (SES) have consistently been associated with both brain structure and functional connectivity in adolescence. However, there is considerable heterogeneity in brain outcomes among youth from disadvantaged backgrounds, which suggests that other factors-including aspects of one's lifestyle-likely play a role by moderating these associations. In a large 
+> The design wave approach has been used in the past to evaluate short-term extreme wave loads on offshore structures, effectively reducing the required test duration compared to the irregular wave Monte Carlo approach. The method uses short-duration wave episodes specifically designed to excite extreme loads. Also known as response-conditioned waves (RCW), they are used in a multi-fidelity framewor
 
-### 🆕 [Temporal Interference Modulates Medial Temporal and Frontoparietal Activity During Mnemonic Discrimination: A High‐Resolution Whole‐Brain fMRI Investigation](https://doi.org/10.1002/hipo.70137)
-<sub>2026-10-01 · Min Sung Seo, Rebecca L. Wagner, Jordan D. Chamberlain 외 · Hippocampus · 🚧 Diamond structure</sub>
+### 🆕 [BIM-based pre-deconstruction audit process. D2.1](https://doi.org/10.82135/tno-1035663)
+<sub>2026-10-07 · M.W.F. Vullings, S.N.M. Wijte, S. Huuhka 외 · TNO Repository · 🚧 Diamond structure · Crystal structure</sub>
 
-> Mnemonic discrimination-the ability to distinguish between existing memories and similar new inputs-supports accurate memory in the face of interference (e.g., in a card game, recognizing that the card you are currently seeing, the King of Hearts, is distinct from the King of Diamonds you encountered earlier in the same hand). Although hippocampal pattern separation has been emphasized as a key me
+> The ReCreate project tests the process of harvesting and reuse of precast concrete elements in four real-life projects in Europe. The goal is to gather knowledge in a wide range of topics directly connected to the reuse of precast concrete elements in structures of new buildings. By reusing these elements, they get a second life and the environmental impact of construction a new building is signif
 
-### 🆕 [Quality-system Control Modes and Technological Transitions in Six Global Semiconductor Firms](https://doi.org/10.7469/jksqm.2026.54.3.739)
-<sub>2026-09-29 · Sungjin Jeon, Woojun Jung · Journal of the Korean society for quality management · 🚧 Three-tiered Impurity Control</sub>
+### 🆕 [USE OF INSECTICIDE-TREATED NETS (ITNs) AND MALARIA PREVENTION PRACTICES AMONG URBAN HOUSEHOLDS IN KADUNA METROPOLIS, NIGERIA](https://doi.org/10.70382/caijbhr.v13i3.022)
+<sub>2026-10-08 · HUSSAINI ABUBAKAR · International Journal of Biological and Healthcare Research · 🚧 Three-tiered Impurity Control</sub>
 
-> Purpose: Leading firms in the same industry espouse near-identical quality philosophies, yet their performance diverges starkly, a gap the field has not adequately explained. We examine it in six global semiconductor firms (Samsung, TSMC, Intel, Micron, Texas Instruments, and GlobalFoundries) and ask which dimension of a quality system still differentiates firms once the content of their declarati
+> Malaria persists as the dominant vector-borne disease in Nigeria despite more than a decade of intensified control efforts built around insecticide-treated net (ITN) distribution. This study investigated the use of ITNs and malaria prevention practices among urban households in Kaduna Metropolis, with specific attention to household knowledge of malaria transmission, the relationship between house
 
-### ✅ [SPM 25: open source neuroimaging analysis software](https://doi.org/10.21105/joss.08103)
-<sub>2025-06-27 · Tim M. Tierney, Nicholas Alexander, John Ashburner 외 · The Journal of Open Source Software · 🚧 Diamond structure · Crystal structure</sub>
+### ✅ [Neuroanatomical Variability and Substance Use Initiation in Late Childhood and Early Adolescence](https://doi.org/10.1001/jamanetworkopen.2024.52027)
+<sub>2024-12-30 · Alex P. Miller, David A. A. Baranger, Sarah E. Paul 외 · JAMA Network Open</sub>
 
-> Statistical Parametric Mapping (SPM) is an integrated set of methods for testing hypotheses about the brain's structure and function, using data from imaging devices.These methods are implemented in an open source software package, SPM, which has been in continuous development for more than 30 years by an international community of developers.This paper reports the release of SPM 25.01, a major ne
+> Importance: The extent to which neuroanatomical variability associated with early substance involvement, which is associated with subsequent risk for substance use disorder development, reflects preexisting risk and/or consequences of substance exposure remains poorly understood. Objective: To examine neuroanatomical features associated with early substance use initiation and to what extent associ
 
-### ✅ [PIM Is All You Need: A CXL-Enabled GPU-Free System for Large Language Model Inference](https://doi.org/10.1145/3676641.3716267)
-<sub>2025-03-27 · Yufeng Gu, Alireza Khadem, Sumanth Umesh 외</sub>
+### ✅ [Pupil size reveals arousal level fluctuations in human sleep](https://doi.org/10.1038/s41467-025-57289-5)
+<sub>2025-02-28 · Manuel Carro‐Domínguez, Stephanie Huwiler, Stella Oberlin 외 · Nature Communications</sub>
 
-> Large Language Model (LLM) inference uses an autoregressive manner to generate one token at a time, which exhibits notably lower operational intensity compared to earlier Machine Learning (ML) models such as encoder-only transformers and Convolutional Neural Networks. At the same time, LLMs possess large parameter sizes and use key-value caches to store context information. Modern LLMs support con
+> Recent animal research has revealed the intricate dynamics of arousal levels that are important for maintaining proper sleep resilience and memory consolidation. In humans, changes in arousal level are believed to be a determining characteristic of healthy and pathological sleep but tracking arousal level fluctuations has been methodologically challenging. Here we measured pupil size, an establish
 
