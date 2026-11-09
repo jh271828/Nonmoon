@@ -1,10 +1,10 @@
 ---
-title: "논문 인박스 — 2026-11-02"
-updated: 2026-11-02
+title: "논문 인박스 — 2026-11-09"
+updated: 2026-11-09
 kind: papers
 ---
 
-# 📬 논문 인박스 — 2026-11-02
+# 📬 논문 인박스 — 2026-11-09
 
 > 새 논문 **5편** — 🆕 신간(최근 14일, 최신순) + ✅ 검증(최근 2년, 인용순). 🚧 = 내 막힌 길목과 닿는 논문.
 > 세션에서 *"이번 주 새 논문 같이 보자"* 라고 하면 러너가 여기서 골라 준다.
@@ -16,28 +16,28 @@ kind: papers
 
 ## Semiconductor
 
-### 🆕 [The Aging Brain Matrix: Cross-Species Evidence Linking FREM3 to Brain and Cognitive Aging](https://doi.org/10.21203/rs.3.rs-11381729/v1)
-<sub>2026-10-29 · Kevan P. Clifford, Thomas Damien Prevot, Akiko Sumitomo 외 · Research Square · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [Effects of Tai Chi exercise on homocysteine, limbic system, and attention control in cerebral small vessel disease](https://doi.org/10.3389/fcell.2026.1993810)
+<sub>2026-11-04 · Bin Chen, Rachel R. Jin, Junji Ma 외 · Frontiers in Cell and Developmental Biology · 🚧 Three-tiered Impurity Control · Diamond structure</sub>
 
-> Abstract The human extracellular-matrix-related FREM3 gene is strongly age-dependent, enriched in age-sensitive excitatory long-range-projecting neurons, and implicated in neurodegenerative diseases. To establish the first translationally relevant causal evidence for the gene’s roles in brain structure and cognition, we developed an excitatory-neuron-specific Frem3 conditional knockout mouse model
+> Background Elevated homocysteine (Hcy) is a risk factor for mild cognitive impairment in cerebral small vessel disease (CSVD-MCI), but the underlying neural pathways remain unelucidated. The limbic system is vulnerable to Hcy-related damage and plays a critical role in attention control; however, the Tai Chi-associated relationship in Hcy, limbic structures, and attention control has not been exam
 
-### 🆕 [Gamma and theta-burst stimulation of the hippocampus and entorhinal area transiently disrupts memory](https://doi.org/10.64898/2026.10.28.762322)
-<sub>2026-10-29 · Adrien Boissenin, Ankur Gupta, Mathieu Taillade 외 · bioRxiv (Cold Spring Harbor Laboratory) · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [Structural brain age trajectories in antipsychotic-naive first episode psychosis](https://doi.org/10.1016/j.schres.2026.10.020)
+<sub>2026-11-06 · Alejandro Roig-Herrero, Shona M. Francey, Brian N. O'Donoghue 외 · Schizophrenia Research · 🚧 Diamond structure · Crystal structure</sub>
 
-> Intracranial electrical stimulation of medial temporal lobe structures has been extensively investigated as a potential intervention for improving memory. However, studies in patients undergoing intracranial monitoring for epilepsy have yielded inconsistent results, with some reporting enhancement and others disruption of memory processes. It remains unclear whether these discrepancies reflect dif
+> BACKGROUND: Psychotic disorders such as schizophrenia have been associated with older-appearing brain structure, commonly quantified using the brain-age paradigm. However, it remains unclear whether these alterations are present at illness onset and whether antipsychotic treatment modifies their trajectory. METHODS: In this study, 61 (28 females and 33 males) antipsychotic-naïve people with first-
 
-### 🆕 [The Aging Brain Matrix: Cross-Species Evidence Linking FREM3 to Brain and Cognitive Aging](https://doi.org/10.64898/2026.10.27.762265)
-<sub>2026-10-28 · Kevan P. Clifford, Thomas Damien Prevot, Akiko Sumitomo 외 · bioRxiv (Cold Spring Harbor Laboratory) · 🚧 Diamond structure · Crystal structure</sub>
+### 🆕 [Learning rapidly reshapes brain microstructure: evidence from dense temporal sampling of diffusion MRI](https://doi.org/10.1523/jneurosci.1110-26.2026)
+<sub>2026-11-06 · Deniz Kumral, Antonia Lenders, Monika Schönauer 외 · Journal of Neuroscience · 🚧 Diamond structure · Crystal structure</sub>
 
-> Abstract The human extracellular-matrix-related FREM3 gene is strongly age-dependent, enriched in age- sensitive excitatory long-range-projecting neurons, and implicated in neurodegenerative diseases. To establish the first translationally relevant causal evidence for the gene’s roles in brain structure and cognition, we developed an excitatory-neuron-specific Frem3 conditional knockout mouse mode
+> Abstract Learning induces rapid microstructural plasticity in the human brain, yet the precise temporal dynamics of these changes remain unclear. Using dense temporal sampling of diffusion-weighted MRI (DW-MRI) combined with task-based fMRI, we assessed microstructural changes throughout a declarative learning paradigm and subsequent rest. Seventy-four participants (36 females) learned image-locat
 
-### ✅ [Thermal management of 3-D heterogeneously integrated microelectronics: challenges and future research directions](https://doi.org/10.1038/s44172-026-00590-y)
-<sub>2026-02-11 · Manoj Kumar Sharma, Bladimir Ramos-Alvarado · Communications Engineering</sub>
+### ✅ [Efficient training of large language models on distributed infrastructures: a survey](https://doi.org/10.1007/s44336-026-00038-z)
+<sub>2026-06-01 · Jiangfei Duan, Shuo Zhang, Zerui Wang 외 · Vicinagearth. · 🚧 Diamond structure · Crystal structure</sub>
 
-> The increasing demand for high-performance computing, artificial intelligence, and advanced communication technologies has accelerated the development of compact, energy-efficient, and multifunctional three-dimensional heterogeneously integrated (3-DHI) microelectronics. While such integrated circuits offer significant improvements in functionality and integration density, the compact and vertical
+> Abstract Large Language Models (LLMs) like GPT and LLaMA are revolutionizing the AI industry with their sophisticated capabilities. Training these models requires vast GPU clusters and significant computing time, posing major challenges in terms of scalability, efficiency, and reliability. This survey explores recent advancements in training systems for LLMs, including innovations in training infr
 
-### ✅ [Neurofeedback for Attention-Deficit/Hyperactivity Disorder](https://doi.org/10.1001/jamapsychiatry.2024.3702)
-<sub>2024-12-11 · Samuel James Westwood, Pascal-M. Aggensteiner, Anna Kaiser 외 · JAMA Psychiatry</sub>
+### ✅ [Serving Large Language Models on Huawei CloudMatrix384](https://doi.org/10.48550/arxiv.2506.12708)
+<sub>2025-06-15 · Zuo, Pengfei, Lin, Huimin, Deng, Junbo 외 · arXiv (Cornell University) · 🚧 Diamond structure · Crystal structure</sub>
 
-> Importance: Neurofeedback has been proposed for the treatment of attention-deficit/hyperactivity disorder (ADHD) but the efficacy of this intervention remains unclear. Objective: To conduct a meta-analysis of randomized clinical trials (RCTs) using probably blinded (ie, rated by individuals probably or certainly unaware of treatment allocation) or neuropsychological outcomes to test the efficacy o
+> The rapid evolution of large language models (LLMs), driven by growing parameter scales, adoption of mixture-of-experts (MoE) architectures, and expanding context lengths, imposes unprecedented demands on AI infrastructure. Traditional AI clusters face limitations in compute intensity, memory bandwidth, inter-chip communication, and latency, compounded by variable workloads and strict service-leve
 
